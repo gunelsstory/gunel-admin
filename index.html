@@ -361,28 +361,6 @@
 
         .login-btn:disabled { opacity: .6; cursor: wait; }
 
-        .login-back-btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            margin-top: 20px;
-
-            text-decoration: none;
-
-            color: var(--text-muted);
-
-            font-size: .9rem;
-
-            font-weight: 600;
-
-        }
-
-        .login-back-btn:hover { color: var(--accent-gold); }
-
 
 
         #loginError {
@@ -1876,8 +1854,6 @@
 
             <button onclick="checkFirestoreLogin()" id="loginBtn" class="login-btn">Sistemə Daxil Ol</button>
 
-            <a href="index.html" class="login-back-btn">← Əsas Səhifəyə Qayıt</a>
-
             <div id="loginError">Məlumatlar yanlışdır və ya baza bağlantısı qurulmadı!</div>
 
         </div>
@@ -2981,7 +2957,7 @@
                     </style>
                 </head>
                 <body>
-                    <h2>MÜQAVİLƏ № ${ticketId}</h2>
+                    <h2>MÜqavilƏ № ${ticketId}</h2>
                     <div class="sub-title">
                         <span>Naxçıvan şəhəri</span>
                         <span>Tarix: ${dateStr}</span>
@@ -2992,7 +2968,7 @@
                     </div>
 
                     <div class="section">
-                        <div class="center-title">1. MÜQAVİLƏNİN PREDMETİ</div>
+                        <div class="center-title">1. MÜqavilƏNİN PREDMETİ</div>
                         <p>1.1. Bu müqavilə "Gunel's Story" layihəsi çərçivəsində uşaqların maariFləndirilməsi, fərdi nağıl kitablarının hazırlanması və təqdimatı prosesində tərəflər arasındakı maliyyə təşkilati əməkdaşlıq münasibətlərini tənzimləyir.<br>
                         1.2. Sponsor layihəyə, başladılmış aksiya çərçivəsində maliyyə dəstəyi göstərməyi, Təşkilatçı isə müqabilində sponsorun razılığı ilə adının layihə materiallarında təbliğ olunmasını öhdəsinə götürür.</p>
                     </div>
@@ -3579,7 +3555,7 @@
 
            BİLDİRİŞ İDARƏETMƏSİ & MƏTN FORMATLAMA
 
-        ========================================================= */
+           ========================================================= */
 
         let notificationUnsubscribe = null;
 
@@ -3978,7 +3954,7 @@
 
             } finally {
 
-                btn.disabled = false;
+                btn.disabled = true;
 
                 btn.innerText = "Yadda saxla";
 
