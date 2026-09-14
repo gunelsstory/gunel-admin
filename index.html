@@ -115,15 +115,14 @@
 
 
 
-        /* LOGIN */
-
+        /* LOGIN - MİNİMALİST VƏ ANİMASİYALI */
         .login-overlay {
 
             position: fixed;
 
             inset: 0;
 
-            background: radial-gradient(circle at 10% 20%, rgba(15,26,92,.98) 0%, rgba(5,10,40,1) 90%);
+            background: radial-gradient(circle at 50% 50%, rgba(15,26,92,.95) 0%, rgba(5,10,40,1) 100%);
 
             display: flex;
 
@@ -133,37 +132,9 @@
 
             z-index: 9999;
 
-            padding: 24px;
+            padding: 20px;
 
         }
-
-
-
-        .login-overlay::before, .login-overlay::after {
-
-            content: '';
-
-            position: absolute;
-
-            width: 400px;
-
-            height: 400px;
-
-            border-radius: 50%;
-
-            background: linear-gradient(135deg, var(--accent-gold), rgba(217,119,6,0));
-
-            filter: blur(120px);
-
-            opacity: .15;
-
-        }
-
-
-
-        .login-overlay::before { top: -10%; left: -10%; }
-
-        .login-overlay::after { bottom: -10%; right: -10%; background: linear-gradient(135deg, #3B82F6, rgba(0,0,0,0)); }
 
 
 
@@ -175,24 +146,39 @@
 
             width: 100%;
 
-            max-width: 460px;
+            max-width: 400px;
 
-            padding: 50px 45px;
+            padding: 35px 30px;
 
-            background: rgba(255,255,255,.88);
+            background: rgba(255, 255, 255, 0.92);
 
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(16px);
 
-            -webkit-backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(16px);
 
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
 
-            border: 1px solid rgba(255,255,255,.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
 
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 
             text-align: center;
 
+            animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+        }
+
+
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
 
@@ -201,9 +187,9 @@
 
             color: var(--primary-lux);
 
-            margin-bottom: 8px;
+            margin-bottom: 6px;
 
-            font-size: 2rem;
+            font-size: 1.6rem;
 
             font-weight: 800;
 
@@ -215,9 +201,9 @@
 
             color: var(--text-muted);
 
-            font-size: .95rem;
+            font-size: .85rem;
 
-            margin-bottom: 35px;
+            margin-bottom: 25px;
 
         }
 
@@ -225,7 +211,7 @@
 
         .input-group {
 
-            margin-bottom: 20px;
+            margin-bottom: 15px;
 
             text-align: left;
 
@@ -237,13 +223,13 @@
 
             display: block;
 
-            margin-bottom: 8px;
+            margin-bottom: 6px;
 
-            padding-left: 4px;
+            padding-left: 2px;
 
             color: var(--primary-lux);
 
-            font-size: .8rem;
+            font-size: .75rem;
 
             font-weight: 700;
 
@@ -259,7 +245,7 @@
 
             width: 100%;
 
-            padding: 15px 18px;
+            padding: 12px 15px;
 
             border: 1.5px solid rgba(15,26,92,.08);
 
@@ -269,7 +255,7 @@
 
             color: var(--text-main);
 
-            font-size: .95rem;
+            font-size: .9rem;
 
             background: #F8FAFC;
 
@@ -285,7 +271,7 @@
 
             background: white;
 
-            box-shadow: 0 0 0 4px rgba(15,26,92,.06);
+            box-shadow: 0 0 0 3px rgba(15,26,92,.06);
 
         }
 
@@ -293,13 +279,13 @@
 
         .password-container { position: relative; }
 
-        .password-container .login-input { padding-right: 55px; }
+        .password-container .login-input { padding-right: 45px; }
 
         .toggle-password {
 
             position: absolute;
 
-            right: 15px;
+            right: 12px;
 
             top: 50%;
 
@@ -317,7 +303,7 @@
 
 
 
-        .toggle-password svg { width: 20px; height: 20px; fill: currentColor; }
+        .toggle-password svg { width: 18px; height: 18px; fill: currentColor; }
 
 
 
@@ -325,9 +311,9 @@
 
             width: 100%;
 
-            padding: 16px;
+            padding: 13px;
 
-            margin-top: 15px;
+            margin-top: 10px;
 
             border: none;
 
@@ -337,7 +323,7 @@
 
             color: white;
 
-            font-size: 1rem;
+            font-size: 0.95rem;
 
             font-weight: 700;
 
@@ -351,9 +337,11 @@
 
         .login-btn:hover {
 
-            transform: translateY(-2px);
+            transform: translateY(-1px);
 
             background: #09103b;
+
+            box-shadow: 0 6px 20px rgba(15,26,92,0.2);
 
         }
 
@@ -367,9 +355,9 @@
 
             display: none;
 
-            margin-top: 20px;
+            margin-top: 15px;
 
-            padding: 12px;
+            padding: 10px;
 
             background: var(--danger-bg);
 
@@ -377,7 +365,7 @@
 
             border-radius: var(--radius-sm);
 
-            font-size: .85rem;
+            font-size: .8rem;
 
             font-weight: 600;
 
@@ -445,7 +433,7 @@
 
 
 
-        /* ZƏNG İKONU (VEB) */
+        /* ZƏNG İKONu (VEB) */
         .admin-bell-btn {
             position: relative;
             background: #F1F5F9;
@@ -1814,15 +1802,15 @@
 
 
 
-    <!-- LOGIN -->
+    <!-- LOGIN - MİNİMALİST VƏ SƏLİQƏLİ -->
 
     <div class="login-overlay" id="loginOverlay">
 
         <div class="login-box">
 
-            <h2>Xoş Gəldiniz</h2>
+            <h2>Admin Panel</h2>
 
-            <p class="login-subtitle">Gunel's Story Admin Panelinə giriş edin</p>
+            <p class="login-subtitle">Gunel's Story sisteminə daxil olun</p>
 
             <div class="input-group">
 
@@ -1852,9 +1840,9 @@
 
             </div>
 
-            <button onclick="checkFirestoreLogin()" id="loginBtn" class="login-btn">Sistemə Daxil Ol</button>
+            <button onclick="checkFirestoreLogin()" id="loginBtn" class="login-btn">Daxil Ol</button>
 
-            <div id="loginError">Məlumatlar yanlışdır və ya baza bağlantısı qurulmadı!</div>
+            <div id="loginError">Məlumatlar yanlışdır!</div>
 
         </div>
 
@@ -2305,19 +2293,19 @@
 
     <!-- CONTRACT PREVIEW MODAL -->
     <div class="modal-overlay" id="contractModal">
-        <div class="portfolio-modal" style="max-width: 800px; max-height: 95vh;">
-            <div class="modal-header">
-                <h2 id="contractModalTitle">Sponsorluq Müqaviləsi</h2>
+        <div class="portfolio-modal" style="max-width: 650px; max-height: 90vh;">
+            <div class="modal-header" style="margin-bottom: 15px;">
+                <h2 id="contractModalTitle" style="font-size: 1.1rem;">Sponsorluq Müqaviləsi</h2>
                 <button class="modal-close" onclick="closeContractModal()">×</button>
             </div>
             
-            <div id="contractModalBody" style="max-height: 60vh; overflow-y: auto; padding: 25px; background: #FAF8F5; border-radius: var(--radius-sm); font-family: 'Times New Roman', Times, serif; font-size: 1.05rem; line-height: 1.6; text-align: justify; color: #111;">
+            <div id="contractModalBody" style="max-height: 55vh; overflow-y: auto; padding: 16px; background: #FAF8F5; border-radius: var(--radius-sm); font-family: 'Times New Roman', Times, serif; font-size: 0.92rem; line-height: 1.5; text-align: justify; color: #111;">
                 <!-- Müqavilə mətni bura yüklənəcək -->
             </div>
 
-            <div class="modal-actions" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-                <button class="modal-btn cancel-btn" onclick="closeContractModal()">Bağla</button>
-                <button class="modal-btn save-btn" onclick="printContractContent()" style="background: #4f46e5;">Print | Export PDF</button>
+            <div class="modal-actions" style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                <button class="modal-btn cancel-btn" onclick="closeContractModal()" style="padding: 10px 16px; font-size: 0.85rem;">Bağla</button>
+                <button class="modal-btn save-btn" onclick="printContractContent()" style="background: #4f46e5; padding: 10px 16px; font-size: 0.85rem;">Çap Et / PDF</button>
             </div>
         </div>
     </div>
@@ -2449,7 +2437,7 @@
 
             error.style.display = "none";
 
-            btn.innerText = "Doğrulanır...";
+            btn.innerText = "Yoxlanılır...";
 
             btn.disabled = true;
 
@@ -2498,7 +2486,7 @@
 
                 .finally(function () {
 
-                    btn.innerText = "Sistemə Daxil Ol";
+                    btn.innerText = "Daxil Ol";
 
                     btn.disabled = false;
 
@@ -2891,7 +2879,7 @@
             db.collection("contractsHistory").doc(docId).delete();
         }
 
-        /* SPONSORLUQ MÜQAVİLƏSİ YARATMAQ VƏ YA BAXMAQ (MODAL İÇƏRİSİndƏ) */
+        /* SPONSORLUQ MÜQAVİLƏSİ YARATMAQ VƏ YA BAXMAQ */
         function generateSponsorContract(name, contact, ticketId, createdAt) {
             let dateStr = "02 Sentyabr 2026";
             let rawDate = new Date();
@@ -2931,65 +2919,40 @@
             document.getElementById("contractModalTitle").innerText = `Müqavilə № ${ticketId}`;
 
             modalBody.innerHTML = `
-                <div style="text-align: center; margin-bottom: 25px;">
-                    <h3 style="text-transform: uppercase; margin-bottom: 5px; font-size: 1.2rem;">MÜQAVİLƏ № ${ticketId}</h3>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: #444; border-bottom: 2px solid #111; padding-bottom: 8px; margin-top: 10px;">
-                        <span>Naxçıvan şəhəri</span>
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <h3 style="text-transform: uppercase; margin-bottom: 3px; font-size: 1rem;">MÜQAVİLƏ № ${ticketId}</h3>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #555; border-bottom: 1.5px solid #111; padding-bottom: 5px; margin-top: 5px;">
+                        <span>Naxçıvan ş.</span>
                         <span>Tarix: ${dateStr}</span>
                     </div>
                 </div>
 
-                <div style="margin-bottom: 18px;">
-                    <p>Bir tərəfdən <b>"Gunel's Story"</b> fərdi uşaq hekayəsi kitabları layihəsinin təsisçisi və rəhbəri <b>Günel Əbilova</b> (bundan sonra "Təşkilatçı" adlandırılacaq), digər tərəfdən isə layihəyə dəstək göstərən <span style="display:inline-block; border-bottom: 1px solid #111; width: 220px; text-align: center;"><b>${name || ''}</b></span> (bundan sonra "Sponsor" adlandırılacaq) aşağıdakı şərtlərlə bu müqaviləni bağlayırlar:</p>
+                <div style="margin-bottom: 10px; font-size: 0.88rem;">
+                    <p><b>"Gunel's Story"</b> təsisçisi <b>Günel Əbilova</b> ilə dəstəkçi <b>${name || ''}</b> arasında bağlanan saziş:</p>
                 </div>
 
-                <div style="margin-bottom: 18px;">
-                    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">1. Müqavilənin predmeti</div>
-                    <p>1.1. Bu müqavilə "Gunel's Story" layihəsi çərçivəsində uşaqların maarifləndirilməsi, fərdi nağıl kitablarının hazırlanması və təqdimatı prosesində tərəflər arasındakı maliyyə-təşkilati əməkdaşlıq münasibətlərini tənzimləyir.<br>
-                    1.2. Sponsor layihəyə, başladılmış aksiya çərçivəsində maliyyə dəstəyi göstərməyi, Təşkilatçı isə müqabilində sponsorun razılığı ilə adının layihə materiallarında təbliğ olunmasını öhdəsinə götürür.</p>
+                <div style="margin-bottom: 10px; font-size: 0.85rem;">
+                    <b style="color: var(--primary-lux);">1. Predmet:</b> Layihə çərçivəsində uşaqların maarifləndirilməsi və fərdi nağıl kitablarının hazırlanması prosesində əməkdaşlıq.
                 </div>
 
-                <div style="margin-bottom: 18px;">
-                    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">2. Tərəflərin hüquq və vəzifələri</div>
-                    <p><b>2.1. Təşkilatçının vəzifələri:</b><br>
-                    - Layihənin vaxtında və keyfiyyətli icrasını təmin etmək;<br>
-                    - Sponsorun adını razılaşdırılmış formatda təqdimatlarda və sosial media hesablarında işıqlandırmaq.<br>
-                    <b>2.2. Sponsorun vəzifələri:</b><br>
-                    - Razılaşdırılmış dəstəyi vaxtında təmin etmək;<br>
-                    - Layihənin imicinə zərər vura biləcək hərəkətlərdən çəkinmək.</p>
+                <div style="margin-bottom: 10px; font-size: 0.85rem;">
+                    <b style="color: var(--primary-lux);">2. Şərtlər:</b> Təşkilatçı kitabların hazırlanmasını və sponsorun adının işıqlandırılmasını təmin edir; Sponsor isə könüllü olaraq 80 AZN dəstək göstərir (1 ədəd kitab xərci).
                 </div>
 
-                <div style="margin-bottom: 18px;">
-                    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">3. Maliyyə dəstəyi</div>
-                    <p>3.1. Dəstəkçi bu aksiyaya könüllü olaraq 80.0 AZN (səksən manat sıfır qəpik) məbləğində vəsaitlə qatılır (Bu məbləğə 1 ədəd fərdi kitabın xərcləri qarşılanır).<br>
-                    3.2. Vəsait Təşkilatçının razılaşdırılmış kart hesabına köçürülür.<br>
-                    3.3. Ayrılan məbləğ sırf kitabların hazırlanması və uşaqlara çatdırılması üçün istifadə olunur, kitablar təhvil verildikdə dəstəkçiyə foto təsdiq göndərilir.</p>
+                <div style="margin-bottom: 10px; font-size: 0.85rem;">
+                    <b style="color: var(--primary-lux);">3. Yekun:</b> Vəsait kitabların hazırlanmasına sərf olunur, təhvil verildikdə foto təsdiq göndərilir.
                 </div>
 
-                <div style="margin-bottom: 18px;">
-                    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">4. Müddət və xitam</div>
-                    <p>4.1. Bu müqavilə tərəflər tərəfindən təsdiq edildiyi andan qüvvəyə minir və layihə çərçivəsindəki tədbirlər başa çatanadək qüvvədədir.<br>
-                    4.2. Müqavilə tərəflərin qarşılıqlı yazılı razılığı ilə vaxtından əvvəl ləğv edilə bilər.</p>
-                </div>
-
-                <div style="margin-bottom: 18px;">
-                    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">5. Yekun müddəalar</div>
-                    <p>5.1. Bu müqavilə ilə tənzimlənməyən məsələlər Azərbaycan Respublikasının qanunvericiliyinə uyğun olaraq həll edilir.<br>
-                    5.2. Müqavilə iki nüsxədə tərtib olunmuşdur.</p>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; margin-top: 40px; font-size: 0.95rem;">
-                    <div style="width: 46%; line-height: 1.8;">
+                <div style="display: flex; justify-content: space-between; margin-top: 20px; font-size: 0.85rem; border-top: 1px dashed #ccc; padding-top: 12px;">
+                    <div style="width: 48%;">
                         <b>SPONSOR:</b><br>
-                        Ad, Soyad: <b>${name || ''}</b><br>
-                        Əlaqə: <b>${contact || ''}</b><br>
-                        İmza: <span style="border-bottom: 1px solid #111; display: inline-block; width: 100%; min-height: 22px; margin-top: 10px;"></span>
+                        ${name || ''} (${contact || ''})<br>
+                        İmza: <span style="border-bottom: 1px solid #111; display: inline-block; width: 80px; min-height: 15px;"></span>
                     </div>
-                    <div style="width: 46%; line-height: 1.8;">
-                        <b>TƏŞKİLATÇI / BREND TƏSİSÇİSİ:</b><br>
-                        Ad, Soyad: <b>Günel Əbilova</b><br>
-                        Layihə: Gunels Story<br>
-                        İmza: <span style="border-bottom: 1px solid #111; display: inline-block; width: 100%; min-height: 22px; margin-top: 10px;"></span>
+                    <div style="width: 48%;">
+                        <b>TƏŞKİLATÇI:</b><br>
+                        Günel Əbilova (Gunels Story)<br>
+                        İmza: <span style="border-bottom: 1px solid #111; display: inline-block; width: 80px; min-height: 15px;"></span>
                     </div>
                 </div>
             `;
@@ -3002,40 +2965,28 @@
         }
 
         function printContractContent() {
-            const title = document.getElementById("contractModalTitle").innerText;
             const content = document.getElementById("contractModalBody").innerHTML;
-
-            const fullHtml = `
+            let win = window.open('', '_blank');
+            win.document.write(`
                 <!DOCTYPE html>
                 <html lang="az">
                 <head>
                     <meta charset="UTF-8">
-                    <title>${title}</title>
+                    <title>Sponsorluq Müqaviləsi</title>
                     <style>
-                        body { font-family: 'Times New Roman', Times, serif; padding: 30px; color: #111; line-height: 1.6; font-size: 1rem; background: white; }
+                        body { font-family: 'Times New Roman', Times, serif; padding: 40px; color: #111; line-height: 1.6; font-size: 1.05rem; }
+                        @media print { body { padding: 10px; } }
                     </style>
                 </head>
                 <body>
                     ${content}
+                    <script>
+                        window.onload = function() { window.print(); window.close(); }
+                    <\/script>
                 </body>
                 </html>
-            `;
-
-            // HTML mətnini Base64 formatına çeviririk
-            const base64Content = btoa(unescape(encodeURIComponent(fullHtml)));
-            const base64Data = "data:application/pdf;base64," + base64Content;
-            const fileName = `${title.replace(/\s+/g, '_')}_${Date.now()}.pdf`;
-
-            // Əgər Android tətbiqindəyiksə, birbaşa Kotlin-dəki savePdf funksiyasını çağırıb telefona yazırıq
-            if (window.AndroidBridge && typeof window.AndroidBridge.savePdf === "function") {
-                window.AndroidBridge.savePdf(base64Data, fileName);
-            } else {
-                // Əgər kompüterdə brauzerdə açılıbsa, fayl kimi endirir və ya çap pəncərəsini açır
-                let win = window.open('', '_blank');
-                win.document.write(fullHtml);
-                win.document.close();
-                win.print();
-            }
+            `);
+            win.document.close();
         }
 
         function startListeningSponsorships() {
