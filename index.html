@@ -3001,30 +3001,7 @@
             document.getElementById("contractModal").classList.remove("active");
         }
 
-        function printContractContent() {
-            const content = document.getElementById("contractModalBody").innerHTML;
-            let win = window.open('', '_blank');
-            win.document.write(`
-                <!DOCTYPE html>
-                <html lang="az">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Sponsorluq Müqaviləsi</title>
-                    <style>
-                        body { font-family: 'Times New Roman', Times, serif; padding: 40px; color: #111; line-height: 1.6; font-size: 1.05rem; }
-                        @media print { body { padding: 10px; } }
-                    </style>
-                </head>
-                <body>
-                    ${content}
-                    <script>
-                        window.onload = function() { window.print(); window.close(); }
-                    <\/script>
-                </body>
-                </html>
-            `);
-            win.document.close();
-        }
+        function printContractContent()
 
         function startListeningSponsorships() {
             const tbody = document.getElementById("sponsorshipsTableBody");
