@@ -3002,28 +3002,40 @@
         }
 
         function printContractContent() {
+            const title = document.getElementById("contractModalTitle").innerText;
             const content = document.getElementById("contractModalBody").innerHTML;
-            let win = window.open('', '_blank');
-            win.document.write(`
+
+            const fullHtml = `
                 <!DOCTYPE html>
                 <html lang="az">
                 <head>
                     <meta charset="UTF-8">
-                    <title>Sponsorluq Müqaviləsi</title>
+                    <title>${title}</title>
                     <style>
-                        body { font-family: 'Times New Roman', Times, serif; padding: 40px; color: #111; line-height: 1.6; font-size: 1.05rem; }
-                        @media print { body { padding: 10px; } }
+                        body { font-family: 'Times New Roman', Times, serif; padding: 30px; color: #111; line-height: 1.6; font-size: 1rem; background: white; }
                     </style>
                 </head>
                 <body>
                     ${content}
-                    <script>
-                        window.onload = function() { window.print(); window.close(); }
-                    <\/script>
                 </body>
                 </html>
-            `);
-            win.document.close();
+            `;
+
+            // HTML mətnini Base64 formatına çeviririk
+            const base64Content = btoa(unescape(encodeURIComponent(fullHtml)));
+            const base64Data = "data:application/pdf;base64," + base64Content;
+            const fileName = `${title.replace(/\s+/g, '_')}_${Date.now()}.pdf`;
+
+            // Əgər Android tətbiqindəyiksə, birbaşa Kotlin-dəki savePdf funksiyasını çağırıb telefona yazırıq
+            if (window.AndroidBridge && typeof window.AndroidBridge.savePdf === "function") {
+                window.AndroidBridge.savePdf(base64Data, fileName);
+            } else {
+                // Əgər kompüterdə brauzerdə açılıbsa, fayl kimi endirir və ya çap pəncərəsini açır
+                let win = window.open('', '_blank');
+                win.document.write(fullHtml);
+                win.document.close();
+                win.print();
+            }
         }
 
         function startListeningSponsorships() {
