@@ -2413,6 +2413,78 @@
         }
 
         function escapeAttribute(value) { return escapeHtml(value); }
+    
+    function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;").replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function escapeAttribute(value) { return escapeHtml(value); }
+
+        /* =====================================================
+            ADMIN PANEL - SƏSLİ BİLDİRİŞ VƏ ZƏNG SİSTEMİ
+        ===================================================== */
+        let isOrderFirstLoad = true;
+        let isSponsorFirstLoad = true;
+
+        // 1. Sifarişləri dinləyən funksiya
+        db.collection("orders").orderBy("createdAt", "desc").onSnapshot(function(snapshot) {
+            if (snapshot.empty) return;
+
+            if (isOrderFirstLoad) {
+                isOrderFirstLoad = false;
+                return;
+            }
+
+            snapshot.docChanges().forEach(function(change) {
+                if (change.type === "added") {
+                    playAdminNotificationSound();
+                }
+            });
+        });
+
+        // 2. Sponsorluq / Müraciətləri dinləyən funksiya
+        db.collection("sponsorships").orderBy("createdAt", "desc").onSnapshot(function(snapshot) {
+            if (snapshot.empty) return;
+
+            if (isSponsorFirstLoad) {
+                isSponsorFirstLoad = false;
+                return;
+            }
+
+            snapshot.docChanges().forEach(function(change) {
+                if (change.type === "added") {
+                    playAdminNotificationSound();
+                }
+            });
+        });
+
+        // 3. Səs effekti yaradan funksiya
+        function playAdminNotificationSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+
+                oscillator.type = "sine";
+                oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime); // E5 notu
+                gainNode.gain.setValueAtTime(0.5, audioCtx.currentTime);
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + 0.4); // 0.4 saniyəlik səs
+            } catch (e) {
+                console.log("Səs çalınmadı:", e);
+            }
+        }
+    </script>
+</body>
+
+</html>
     </script>
 </body>
 
