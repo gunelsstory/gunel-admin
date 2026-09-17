@@ -225,6 +225,7 @@
             gap: 12px;
         }
 
+        /* ZƏNG İKONU (VEB) */
         .admin-bell-btn {
             position: relative;
             background: #F1F5F9;
@@ -251,7 +252,11 @@
             50% { transform: scale(1.1); }
         }
 
-        .admin-bell-btn svg { width: 20px; height: 20px; fill: currentColor; }
+        .admin-bell-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
 
         .bell-badge {
             position: absolute;
@@ -313,14 +318,14 @@
             box-shadow: 0 6px 15px rgba(15,26,92,.15);
         }
 
-        /* MOBİL SİDEBAR MENYU */
+        /* MOBİL SAĞ SİDEBAR MENYU ÜÇÜN İKON DÜYMƏ VƏ OVERLAY */
         .mobile-menu-toggle {
             display: none;
             align-items: center;
             justify-content: center;
-            background: #F1F5F9;
+            background: var(--primary-soft);
             color: var(--primary-lux);
-            border: 1px solid rgba(15, 26, 92, 0.2);
+            border: 1px solid rgba(79, 70, 229, 0.2);
             width: 40px;
             height: 40px;
             border-radius: 10px;
@@ -340,7 +345,10 @@
             transition: opacity 0.3s ease;
         }
 
-        .mobile-sidebar-overlay.active { display: block; opacity: 1; }
+        .mobile-sidebar-overlay.active {
+            display: block;
+            opacity: 1;
+        }
 
         .mobile-sidebar {
             position: fixed;
@@ -357,7 +365,9 @@
             padding: 24px 20px;
         }
 
-        .mobile-sidebar.active { right: 0; }
+        .mobile-sidebar.active {
+            right: 0;
+        }
 
         .mobile-sidebar-header {
             display: flex;
@@ -368,7 +378,11 @@
             padding-bottom: 15px;
         }
 
-        .mobile-sidebar-header h3 { color: var(--primary-lux); font-size: 1.1rem; font-weight: 800; }
+        .mobile-sidebar-header h3 {
+            color: var(--primary-lux);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
 
         .mobile-sidebar-close {
             background: #f1f5f9;
@@ -384,7 +398,11 @@
             justify-content: center;
         }
 
-        .mobile-sidebar-links { display: flex; flex-direction: column; gap: 8px; }
+        .mobile-sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
 
         .mobile-sidebar-tab {
             display: flex;
@@ -403,9 +421,9 @@
         }
 
         .mobile-sidebar-tab.active {
-            background: var(--primary-lux);
-            color: white;
-            border-color: var(--primary-lux);
+            background: var(--primary-soft);
+            color: var(--primary-magic);
+            border-color: rgba(79, 70, 229, 0.2);
         }
 
         .sidebar-badge {
@@ -429,7 +447,12 @@
             border: 1px solid rgba(15,26,92,.05);
         }
 
-        table { width: 100%; border-collapse: collapse; background: white; text-align: left; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            text-align: left;
+        }
 
         th {
             padding: 18px 20px;
@@ -508,7 +531,7 @@
         .delete-btn:hover { background: var(--danger-bg); }
         .delete-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
-        /* PORTFOLIO & TOOLBAR */
+        /* PORTFOLIO & NOTIFICATION TOOLBAR */
         .portfolio-toolbar {
             display: flex;
             justify-content: space-between;
@@ -517,8 +540,17 @@
             margin-bottom: 25px;
         }
 
-        .section-title h2 { color: var(--primary-lux); font-size: 1.5rem; font-weight: 800; }
-        .section-title p { margin-top: 5px; color: var(--text-muted); font-size: .85rem; }
+        .section-title h2 {
+            color: var(--primary-lux);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            margin-top: 5px;
+            color: var(--text-muted);
+            font-size: .85rem;
+        }
 
         .add-portfolio-btn {
             display: inline-flex;
@@ -534,7 +566,10 @@
             transition: var(--transition);
         }
 
-        .add-portfolio-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(15,26,92,.18); }
+        .add-portfolio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(15,26,92,.18);
+        }
 
         /* PORTFOLIO LIST */
         .portfolio-list {
@@ -597,7 +632,13 @@
             text-align: center;
         }
 
-        .portfolio-list-title { color: var(--primary-lux); font-size: .92rem; font-weight: 800; line-height: 1.4; }
+        .portfolio-list-title {
+            color: var(--primary-lux);
+            font-size: .92rem;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
         .portfolio-list-author { color: var(--accent-gold); font-size: .82rem; font-weight: 700; margin-top: 3px; }
         .portfolio-date { color: var(--text-muted); font-size: .78rem; line-height: 1.5; }
         .portfolio-list-actions { display: flex; align-items: center; justify-content: flex-end; gap: 7px; }
@@ -633,6 +674,7 @@
         .delete-portfolio-btn { background: var(--danger-bg); color: var(--danger); }
         .delete-portfolio-btn:hover { background: var(--danger); color: white; }
 
+        /* MÜQAVİLƏ DÜYMƏLƏRİ */
         .contract-btn {
             background: #4f46e5;
             color: white;
@@ -644,7 +686,22 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        .contract-btn:hover { background: #4338ca; transform: translateY(-1px); }
+        .contract-btn:hover {
+            background: #4338ca;
+            transform: translateY(-1px);
+        }
+
+        .contract-exists-badge {
+            background: var(--success-bg);
+            color: var(--success);
+            padding: 8px 12px;
+            border-radius: 9px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
 
         .view-contract-btn {
             background: #F1F5F9;
@@ -661,8 +718,12 @@
             align-items: center;
             gap: 4px;
         }
-        .view-contract-btn:hover { background: var(--primary-lux); color: white; }
+        .view-contract-btn:hover {
+            background: var(--primary-lux);
+            color: white;
+        }
 
+        /* BİLDİRİŞ STATUS DÜYMƏLƏRİ */
         .publish-btn { background: var(--success-bg); color: var(--success); }
         .publish-btn:hover { background: var(--success); color: white; }
         .unpublish-btn { background: #FEF3C7; color: #D97706; }
@@ -677,7 +738,12 @@
             background: white;
         }
 
-        .loading-text { text-align: center; padding: 50px; color: var(--text-muted); font-weight: 600; }
+        .loading-text {
+            text-align: center;
+            padding: 50px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
 
         /* FORMATLAMA TOOLBAR */
         .rich-toolbar {
@@ -708,7 +774,12 @@
             min-width: 32px;
             height: 30px;
         }
-        .rich-btn:hover { background: var(--primary-lux); color: white; border-color: var(--primary-lux); }
+
+        .rich-btn:hover {
+            background: var(--primary-lux);
+            color: white;
+            border-color: var(--primary-lux);
+        }
 
         /* MODALLAR */
         .modal-overlay {
@@ -735,7 +806,13 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
         .modal-header h2 { color: var(--primary-lux); font-size: 1.4rem; }
         .modal-close {
             width: 38px;
@@ -749,7 +826,14 @@
         }
 
         .form-group { margin-bottom: 18px; }
-        .form-label { display: block; margin-bottom: 8px; color: var(--primary-lux); font-size: .8rem; font-weight: 700; }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-lux);
+            font-size: .8rem;
+            font-weight: 700;
+        }
+
         textarea.form-input { min-height: 100px; resize: vertical; }
 
         .image-upload-area {
@@ -766,6 +850,7 @@
             cursor: pointer;
             overflow: hidden;
         }
+
         .image-upload-area:hover { border-color: var(--primary-lux); }
         .image-upload-area input { display: none; }
         .upload-placeholder { text-align: center; color: var(--text-muted); }
@@ -788,13 +873,34 @@
             padding: 30px;
             background: rgba(5,10,40,.72);
             backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             z-index: 20000;
             opacity: 0;
             transition: opacity .25s ease;
         }
+
         .image-viewer-overlay.active { display: flex; opacity: 1; }
-        .image-viewer-content { position: relative; max-width: min(1000px, 92vw); max-height: 90vh; display: flex; align-items: center; justify-content: center; }
-        .image-viewer-image { display: block; max-width: 100%; max-height: 84vh; width: auto; height: auto; object-fit: contain; border-radius: 14px; background: white; box-shadow: 0 30px 90px rgba(0,0,0,.35); }
+        .image-viewer-content {
+            position: relative;
+            max-width: min(1000px, 92vw);
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-viewer-image {
+            display: block;
+            max-width: 100%;
+            max-height: 84vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 30px 90px rgba(0,0,0,.35);
+        }
+
         .image-viewer-close {
             position: fixed;
             top: 25px;
@@ -809,10 +915,13 @@
             background: rgba(255,255,255,.12);
             color: white;
             font-size: 28px;
+            line-height: 1;
             cursor: pointer;
-            z-index: 2;
+            backdrop-filter: blur(8px);
             transition: var(--transition);
+            z-index: 2;
         }
+
         .image-viewer-close:hover { background: white; color: var(--primary-lux); transform: rotate(90deg); }
         .image-viewer-title {
             position: fixed;
@@ -826,10 +935,12 @@
             color: var(--primary-lux);
             font-size: .82rem;
             font-weight: 700;
+            text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,.15);
+            backdrop-filter: blur(8px);
         }
 
-        /* AKKORDION KARTLAR */
+        /* MOBİL MÜRACİƏTLƏR VƏ PORTFOLIO ÜÇÜN AKKORDION KARTLAR */
         .sponsor-mobile-card, .portfolio-mobile-card {
             background: white;
             border: 1px solid rgba(15,26,92,.08);
@@ -838,6 +949,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-sm);
         }
+
         .sponsor-mobile-header, .portfolio-mobile-header {
             display: flex;
             justify-content: space-between;
@@ -846,23 +958,60 @@
             background: #F8FAFC;
             cursor: pointer;
             user-select: none;
+            transition: background 0.2s;
         }
+
+        .sponsor-mobile-header:hover, .portfolio-mobile-header:hover {
+            background: #F1F5F9;
+        }
+
         .sponsor-ticket-id {
             font-family: monospace;
             font-weight: 800;
             color: var(--primary-lux);
             font-size: 0.95rem;
-            background: #e2e8f0;
+            background: var(--primary-soft);
             padding: 4px 8px;
             border-radius: 6px;
         }
-        .sponsor-arrow, .portfolio-arrow { transition: transform 0.3s ease; font-size: 1.1rem; color: var(--text-muted); font-weight: bold; }
-        .sponsor-mobile-card.open .sponsor-arrow, .portfolio-mobile-card.open .portfolio-arrow { transform: rotate(90deg); }
-        .sponsor-mobile-body, .portfolio-mobile-body { display: none; padding: 20px; border-top: 1px solid rgba(15,26,92,.06); background: #ffffff; }
-        .sponsor-mobile-card.open .sponsor-mobile-body, .portfolio-mobile-card.open .portfolio-mobile-body { display: block; }
-        .sponsor-field { margin-bottom: 12px; font-size: 0.9rem; }
-        .sponsor-field b { color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase; display: block; margin-bottom: 2px; }
 
+        .sponsor-arrow, .portfolio-arrow {
+            transition: transform 0.3s ease;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .sponsor-mobile-card.open .sponsor-arrow, .portfolio-mobile-card.open .portfolio-arrow {
+            transform: rotate(90deg);
+        }
+
+        .sponsor-mobile-body, .portfolio-mobile-body {
+            display: none;
+            padding: 20px;
+            border-top: 1px solid rgba(15,26,92,.06);
+            background: #ffffff;
+        }
+
+        .sponsor-mobile-card.open .sponsor-mobile-body, .portfolio-mobile-card.open .portfolio-mobile-body {
+            display: block;
+        }
+
+        .sponsor-field {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .sponsor-field b {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 900px) {
             body { padding: 0 10px 50px; }
             .admin-container { margin-top: 10px; padding: 16px; border-radius: 16px; }
@@ -878,11 +1027,35 @@
             td:first-child { border-top: none; }
             td::before { content: attr(data-label); flex-shrink: 0; color: var(--text-muted); font-size: .65rem; font-weight: 700; text-transform: uppercase; }
             .action-container { justify-content: flex-end; }
+
+            .portfolio-toolbar {
+                margin-bottom: 15px;
+                gap: 10px;
+            }
+
+            .section-title h2 {
+                font-size: 1.15rem;
+            }
+
+            .section-title p {
+                font-size: 0.75rem;
+            }
+
+            .add-portfolio-btn {
+                padding: 10px 14px;
+                font-size: 0.78rem;
+                border-radius: 8px;
+            }
+
             .portfolio-list { display: none !important; }
             .portfolio-mobile-list { display: flex !important; flex-direction: column; gap: 8px; }
+
+            #notificationsAdminGrid .portfolio-list { display: none !important; }
+            #notificationsAdminGrid .portfolio-mobile-list { display: flex !important; flex-direction: column; gap: 8px; }
             #codesAdminGrid .portfolio-list { display: none !important; }
             #codesAdminGrid .portfolio-mobile-list { display: flex !important; flex-direction: column; gap: 8px; }
         }
+
         @media (min-width: 901px) {
             .portfolio-mobile-list { display: none !important; }
         }
@@ -918,7 +1091,6 @@
     <!-- ADMIN PANEL -->
     <div class="admin-container" id="adminContainer">
         <div class="admin-header">
-            <h1>Admin Panel</h1>
             <div class="admin-header-actions">
                 <button type="button" class="admin-bell-btn" id="adminBellBtn" title="Gözləyən müraciətlər">
                     <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
@@ -1130,8 +1302,8 @@
                 </label>
             </div>
             <div class="modal-actions">
-                <button class="modal-btn cancel-btn" onclick="closePortfolioModal()">İmtina</button>
-                <button class="modal-btn save-btn" id="savePortfolioBtn" onclick="savePortfolio()">Yadda saxla</button>
+                <button class="modal-btn cancel-btn" onclick="closePortfolioModal()">Cancle</button>
+                <button class="modal-btn save-btn" id="savePortfolioBtn" onclick="savePortfolio()">Save</button>
             </div>
         </div>
     </div>
@@ -1176,22 +1348,22 @@
             <div class="form-group">
                 <label class="form-label">Bildiriş Mətni *</label>
                 <div class="rich-toolbar">
-                    <button type="button" class="rich-btn" onclick="formatNoticeText('b')" title="Qalın"><b>B</b></button>
-                    <button type="button" class="rich-btn" onclick="formatNoticeText('i')" title="Kursiv"><i>I</i></button>
-                    <button type="button" class="rich-btn" onclick="formatNoticeText('u')" title="Altı xətli"><u>U</u></button>
-                    <button type="button" class="rich-btn" onclick="formatNoticeLink()" title="Link">⇗</button>
+                    <button type="button" class="rich-btn" onclick="formatNoticeText('b')" title="Qalın (Bold)"><b>B</b></button>
+                    <button type="button" class="rich-btn" onclick="formatNoticeText('i')" title="Kursiv (Italic)"><i>I</i></button>
+                    <button type="button" class="rich-btn" onclick="formatNoticeText('u')" title="Altı xətli (Underline)"><u>U</u></button>
+                    <button type="button" class="rich-btn" onclick="formatNoticeLink()" title="Link əlavə et">⇗</button>
                 </div>
                 <textarea id="noticeMessage" class="form-input" placeholder="Bildiriş mətni..."></textarea>
             </div>
             <div class="form-group">
                 <label class="form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
                     <input type="checkbox" id="noticeIsActive" style="width: 18px; height: 18px; cursor: pointer;">
-                    Saytda yayımla (Publish)
+                    Publish to site
                 </label>
             </div>
             <div class="modal-actions">
-                <button class="modal-btn cancel-btn" onclick="closeNotificationModal()">İmtina</button>
-                <button class="modal-btn save-btn" id="saveNoticeBtn" onclick="saveNotification()">Yadda saxla</button>
+                <button class="modal-btn cancel-btn" onclick="closeNotificationModal()">Cancle</button>
+                <button class="modal-btn save-btn" id="saveNoticeBtn" onclick="saveNotification()">Save</button>
             </div>
         </div>
     </div>
@@ -1204,6 +1376,7 @@
                 <button class="modal-close" onclick="closeContractModal()">×</button>
             </div>
             <div id="contractModalBody" style="font-family: 'Times New Roman', Times, serif; font-size: 1.05rem; line-height: 1.6; color: #111; max-height: 65vh; overflow-y: auto; padding: 15px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 20px;">
+                <!-- Müqavilə mətni bura tam yüklənəcək -->
             </div>
             <div class="modal-actions" style="justify-content: space-between;">
                 <button class="modal-btn cancel-btn" onclick="closeContractModal()">Bağla</button>
@@ -1224,6 +1397,7 @@
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!-- html2pdf kitabxanası (PDF export üçün) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <script>
@@ -1320,7 +1494,7 @@
             document.getElementById(section + "Section").classList.add("active");
         }
 
-        /* MOBİL SİDEBAR */
+        /* MOBİL SİDEBAR İDARƏETMƏSİ */
         function toggleMobileSidebar() {
             const sidebar = document.getElementById("mobileSidebar");
             const overlay = document.getElementById("mobileSidebarOverlay");
@@ -1331,14 +1505,17 @@
         function switchMobileTab(section, button) {
             document.querySelectorAll(".mobile-sidebar-tab").forEach(tab => tab.classList.remove("active"));
             button.classList.add("active");
+
             document.querySelectorAll(".admin-section").forEach(s => s.classList.remove("active"));
             document.getElementById(section + "Section").classList.add("active");
+
             toggleMobileSidebar();
         }
 
-        /* BİLDİRİŞ SAYĞACLARI */
+        /* BİLDİRİŞ SAYĞACLARINI YENİLƏMƏK ÜÇÜN ÜMUMİ FUNKSİYA */
         function updateWaitingCounters(waitingOrdersCount, waitingSponsorsCount) {
             const totalWaiting = waitingOrdersCount + waitingSponsorsCount;
+
             const bellBtn = document.getElementById("adminBellBtn");
             const bellBadge = document.getElementById("bellBadge");
             if (totalWaiting > 0) {
@@ -1351,16 +1528,36 @@
             }
 
             const tabOrders = document.getElementById("badgeTabOrders");
-            if (waitingOrdersCount > 0) { tabOrders.style.display = "inline-block"; tabOrders.innerText = waitingOrdersCount; } else { tabOrders.style.display = "none"; }
+            if (waitingOrdersCount > 0) {
+                tabOrders.style.display = "inline-block";
+                tabOrders.innerText = waitingOrdersCount;
+            } else {
+                tabOrders.style.display = "none";
+            }
 
             const tabSponsors = document.getElementById("badgeTabSponsors");
-            if (waitingSponsorsCount > 0) { tabSponsors.style.display = "inline-block"; tabSponsors.innerText = waitingSponsorsCount; } else { tabSponsors.style.display = "none"; }
+            if (waitingSponsorsCount > 0) {
+                tabSponsors.style.display = "inline-block";
+                tabSponsors.innerText = waitingSponsorsCount;
+            } else {
+                tabSponsors.style.display = "none";
+            }
 
             const mobOrders = document.getElementById("badgeMobileOrders");
-            if (waitingOrdersCount > 0) { mobOrders.style.display = "inline-block"; mobOrders.innerText = waitingOrdersCount; } else { mobOrders.style.display = "none"; }
+            if (waitingOrdersCount > 0) {
+                mobOrders.style.display = "inline-block";
+                mobOrders.innerText = waitingOrdersCount;
+            } else {
+                mobOrders.style.display = "none";
+            }
 
             const mobSponsors = document.getElementById("badgeMobileSponsors");
-            if (waitingSponsorsCount > 0) { mobSponsors.style.display = "inline-block"; mobSponsors.innerText = waitingSponsorsCount; } else { mobSponsors.style.display = "none"; }
+            if (waitingSponsorsCount > 0) {
+                mobSponsors.style.display = "inline-block";
+                mobSponsors.innerText = waitingSponsorsCount;
+            } else {
+                mobSponsors.style.display = "none";
+            }
         }
 
         /* SİFARİŞLƏR */
@@ -1471,7 +1668,7 @@
             });
         }
 
-        /* SPONSORLUQ */
+        /* TƏKLİF VƏ SPONSORLUQ MÜRACİƏTLƏRİ */
         function toggleSponsorshipStatus(docId, currentStatus) {
             db.collection("sponsorships").doc(docId).update({ isViewed: !currentStatus });
         }
@@ -1546,27 +1743,37 @@
             db.collection("contractsHistory").doc(docId).delete();
         }
 
+        /* SPONSORLUQ MÜqaviləsi MODAL FUNKSİYALARI */
         function generateSponsorContract(name, contact, ticketId, createdAt) {
             let dateStr = "02 Sentyabr 2026";
             let rawDate = new Date();
             if (createdAt && typeof createdAt.toDate === "function") {
                 rawDate = createdAt.toDate();
-                dateStr = rawDate.toLocaleDateString("az-AZ", { day: "2-digit", month: "long", year: "numeric" });
+                dateStr = rawDate.toLocaleDateString("az-AZ", {
+                    day: "2-digit", month: "long", year: "numeric"
+                });
             }
 
             if (!existingContractsMap.has(ticketId)) {
                 db.collection("contractsHistory").add({
-                    ticketId: ticketId, name: name, contact: contact,
+                    ticketId: ticketId,
+                    name: name,
+                    contact: contact,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                }).then(() => { startListeningContracts(); }).catch(err => console.log("Xəta:", err));
+                }).then(() => {
+                    startListeningContracts();
+                }).catch(err => console.log("Tarixçəyə yazılma xətası:", err));
             }
+
             openContractModal(name, contact, ticketId, dateStr);
         }
 
         function viewExistingContract(name, contact, ticketId, createdAt) {
             let dateStr = "02 Sentyabr 2026";
             if (createdAt && typeof createdAt.toDate === "function") {
-                dateStr = createdAt.toDate().toLocaleDateString("az-AZ", { day: "2-digit", month: "long", year: "numeric" });
+                dateStr = createdAt.toDate().toLocaleDateString("az-AZ", {
+                    day: "2-digit", month: "long", year: "numeric"
+                });
             }
             openContractModal(name, contact, ticketId, dateStr);
         }
@@ -1576,35 +1783,84 @@
             const bodyContainer = document.getElementById("contractModalBody");
             bodyContainer.innerHTML = `
                 <div id="contractPDFContent" style="padding: 10px;">
-                    <h2 style="text-align: center; margin-bottom: 5px; text-transform: uppercase; font-size: 1.2rem;">MÜQAVİLƏ № ${ticketId}</h2>
+                    <h2 style="text-align: center; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; font-size: 1.2rem;">MÜQAVİLƏ № ${ticketId}</h2>
                     <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: #444; margin-bottom: 25px; border-bottom: 2px solid #111; padding-bottom: 8px;">
-                        <span>Naxçıvan şəhəri</span><span>Tarix: ${dateStr}</span>
+                        <span>Naxçıvan şəhəri</span>
+                        <span>Tarix: ${dateStr}</span>
                     </div>
+
                     <div style="margin-bottom: 18px; text-align: justify;">
-                        <p style="margin-bottom: 8px;">Bir tərəfdən <b>"Gunel's Story"</b> layihəsinin rəhbəri <b>Günel Əbilova</b>, digər tərəfdən dəstək göstərən <span style="display:inline-block; border-bottom: 1px solid #111; width: 200px; text-align: center;"><b>${name || ''}</b></span> (Sponsor) bu müqaviləni bağlayırlar:</p>
+                        <p style="margin-bottom: 8px;">Bir tərəfdən <b>"Gunel's Story"</b> fərdi uşaq hekayəsi kitabları layihəsinin təsisçisi və rəhbəri <b>Günel Əbilova</b> (bundan sonra "Təşkilatçı" adlandırılacaq), digər tərəfdən isə layihəyə dəstək göstərən <span style="display:inline-block; border-bottom: 1px solid #111; width: 200px; text-align: center;"><b>${name || ''}</b></span> (bundan sonra "Sponsor" adlandırılacaq) aşağıdakı şərtlərlə bu müqaviləni bağlayırlar:</p>
                     </div>
+
                     <div style="margin-bottom: 18px; text-align: justify;">
                         <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">1. MÜQAVİLƏNİN PREDMETİ</div>
-                        <p style="margin-bottom: 8px;">1.1. Layihə çərçivəsində əməkdaşlıq münasibətlərini tənzimləyir.</p>
+                        <p style="margin-bottom: 8px;">1.1. Bu müqavilə "Gunel's Story" layihəsi çərçivəsində uşaqların maarifləndirilməsi, fərdi nağıl kitablarının hazırlanması və təqdimatı prosesində tərəflər arasındakı maliyyə təşkilati əməkdaşlıq münasibətlərini tənzimləyir.<br>
+                        1.2. Sponsor layihəyə, başladılmış aksiya çərçivəsində maliyyə dəstəyi göstərməyi, Təşkilatçı ise müqabilində sponsorun razılığı ilə adının layihə materiallarında təbliğ olunmasını öhdəsinə götürür.</p>
                     </div>
+
+                    <div style="margin-bottom: 18px; text-align: justify;">
+                        <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">2. TƏRƏFLƏRİN HÜQUQ VƏ VƏZİFƏLƏRİ</div>
+                        <p style="margin-bottom: 8px;"><b>2.1. Təşkilatçının vəzifələri:</b><br>
+                        - Layihənin vaxtında və keyfiyyətli icrasını təmin etmək;<br>
+                        - Sponsorun adını razılaşdırılmış formatda təqdimatlarda və sosial media hesablarında işıqlandırmaq.<br>
+                        <b>2.2. Sponsorun vəzifələri:</b><br>
+                        - Razılaşdırılmış dəstəyi vaxtında təmin etmək;<br>
+                        - Layihənin imicinə zərər vura biləcək hərəkətlərdən çəkinmək.</p>
+                    </div>
+
                     <div style="margin-bottom: 18px; text-align: justify;">
                         <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">3. MALİYYƏ DƏSTƏYİ</div>
-                        <p style="margin-bottom: 8px;">3.1. Dəstəkçi bu aksiyaya könüllü olaraq 80.0 AZN məbləğində vəsaitlə qatılır.</p>
+                        <p style="margin-bottom: 8px;">3.1. Dəstəkçi bu aksiyaya könüllü olaraq 80.0 AZN (bir səksən manat sıfır qəpik) məbləğində vəsaitlə qatılır (Bu məbləğə 1 ədəd fərdi kitabın xərcləri qarşılanır).<br>
+                        3.2. Vəsait Təşkilatçının razılaşdırılmış kart hesabına köçürülür.<br>
+                        3.3. Ayrılan məbləğ sırf kitabların hazırlanması və uşaqlara çatdırılması üçün istifadə olunur, kitablar təhvil verildikdə dəstəkçiyə foto təsdiq göndərilir.</p>
                     </div>
+                    
+                    <div style="margin-bottom: 18px; text-align: justify;">
+                        <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">4. MÜDDƏT VƏ XİTAM</div>
+                        <p style="margin-bottom: 8px;">4.1. Bu müqavilə tərəflər tərəfindən təsdiq edildiyi andan qüvvəyə minir və layihə çərçivəsindəki tədbirlər başa çatanadək qüvvədədir.<br>
+                        4.2. Müqavilə tərəflərin qarşılıqlı yazılı razılığı ilə vaxtından əvvəl ləğv edilə bilər.</p>
+                    </div>
+
+                    <div style="margin-bottom: 18px; text-align: justify;">
+                        <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 15px; margin-bottom: 5px;">5. YEKUN MÜDDƏALAR</div>
+                        <p style="margin-bottom: 8px;">5.1. Bu müqavilə ilə tənzimlənməyən məsələlər Azərbaycan Respublikasının qanunvericiliyinə uyğun olaraq həll edilir.<br>
+                        5.2. Müqavilə iki nüsxədə tərtib olunmuşdur.</p>
+                    </div>
+
                     <div style="display: flex; justify-content: space-between; margin-top: 40px;">
-                        <div style="width: 46%; line-height: 1.8;"><b>SPONSOR:</b><br>${name || ''}<br>İmza: <span style="border-bottom: 1px solid #111; display: inline-block; width: 100%; min-height: 20px;"></span></div>
-                        <div style="width: 46%; line-height: 1.8;"><b>TƏŞKİLATÇI:</b><br>Günel Əbilova<br>İmza: <span style="border-bottom: 1px solid #111; display: inline-block; width: 100%; min-height: 20px;"></span></div>
+                        <div style="width: 46%; line-height: 1.8;">
+                            <b>SPONSOR:</b><br>
+                            Ad, Soyad: <b>${name || ''}</b><br>
+                            Əlaqə: <b>${contact || ''}</b><br>
+                            İmza: <span style="border-bottom: 1px solid #111; display: inline-block; width: 100%; min-height: 20px; margin-top: 10px;"></span>
+                        </div>
+                        <div style="width: 46%; line-height: 1.8;">
+                            <b>TƏŞKİLATÇI / BREND TƏSİSÇİSİ:</b><br>
+                            Ad, Soyad: <b>Günel Əbilova</b><br>
+                            Layihə: Gunels Story<br>
+                            İmza: <span style="border-bottom: 1px solid #111; display: inline-block; width: 100%; min-height: 20px; margin-top: 10px;"></span>
+                        </div>
                     </div>
                 </div>
             `;
             document.getElementById("contractModal").classList.add("active");
         }
 
-        function closeContractModal() { document.getElementById("contractModal").classList.remove("active"); }
+        function closeContractModal() {
+            document.getElementById("contractModal").classList.remove("active");
+        }
 
         function exportContractPDF() {
             const element = document.getElementById("contractPDFContent");
-            const opt = { margin: 10, filename: `Muqavile.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4' } };
+            const titleText = document.getElementById("contractModalTitle").innerText;
+            const opt = {
+                margin:       10,
+                filename:     `${titleText}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
             html2pdf().from(element).set(opt).save();
         }
 
@@ -1614,40 +1870,56 @@
             const desktopView = document.getElementById("desktopSponsorshipsView");
 
             db.collection("sponsorships").orderBy("createdAt", "desc").onSnapshot(function (snapshot) {
-                tbody.innerHTML = ""; mobileContainer.innerHTML = ""; currentWaitingSponsors = 0;
+                tbody.innerHTML = "";
+                mobileContainer.innerHTML = "";
+                currentWaitingSponsors = 0;
 
                 if (snapshot.empty) {
-                    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:50px; color:var(--text-muted);">Müraciət yoxdur.</td></tr>`;
+                    const emptyMsg = `<tr><td colspan="6" style="text-align:center; padding:50px; color:var(--text-muted);">Hələ heç bir təklif və ya sponsorluq müraciəti yoxdur.</td></tr>`;
+                    tbody.innerHTML = emptyMsg;
                     mobileContainer.innerHTML = `<div class="empty-portfolio"><strong>Müraciət yoxdur</strong></div>`;
                     updateWaitingCounters(currentWaitingOrders, currentWaitingSponsors);
                     return;
                 }
 
                 function updateViewMode() {
-                    if (window.innerWidth <= 900) { desktopView.style.display = "none"; mobileContainer.style.display = "block"; }
-                    else { desktopView.style.display = "block"; mobileContainer.style.display = "none"; }
+                    if (window.innerWidth <= 900) {
+                        desktopView.style.display = "none";
+                        mobileContainer.style.display = "block";
+                    } else {
+                        desktopView.style.display = "block";
+                        mobileContainer.style.display = "none";
+                    }
                 }
                 updateViewMode();
                 window.addEventListener("resize", updateViewMode);
 
                 snapshot.forEach(function (doc) {
-                    const data = doc.data(); const id = doc.id; const viewed = data.isViewed || false;
+                    const data = doc.data();
+                    const id = doc.id;
+                    const viewed = data.isViewed || false;
                     if (!viewed) currentWaitingSponsors++;
 
                     const ticketId = data.ticketId || "TKT-XXXXX";
                     const name = data.name || "Qeyd edilməyib";
                     const contact = data.contact || "Qeyd yoxdur";
                     const message = data.message || "Mətn yoxdur";
+
                     let date = "Gözlənilir";
                     let rawCreatedAt = data.createdAt;
                     if (rawCreatedAt && typeof rawCreatedAt.toDate === "function") {
-                        date = rawCreatedAt.toDate().toLocaleString("az-AZ", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
+                        date = rawCreatedAt.toDate().toLocaleString("az-AZ", {
+                            day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"
+                        });
                     }
 
                     const hasContract = existingContractsMap.has(ticketId);
-                    let contractButtonHtml = hasContract ? 
-                        `<button type="button" class="view-contract-btn" onclick="viewExistingContract('${escapeAttribute(name)}', '${escapeAttribute(contact)}', '${escapeAttribute(ticketId)}', window.firebaseCreatedAt_${escapeAttribute(id)})">Müqavilə</button>` : 
-                        `<button type="button" class="contract-btn" onclick="generateSponsorContract('${escapeAttribute(name)}', '${escapeAttribute(contact)}', '${escapeAttribute(ticketId)}', window.firebaseCreatedAt_${escapeAttribute(id)})">Müqavilə yarat</button>`;
+                    let contractButtonHtml = '';
+                    if (hasContract) {
+                        contractButtonHtml = `<button type="button" class="view-contract-btn" onclick="viewExistingContract('${escapeAttribute(name)}', '${escapeAttribute(contact)}', '${escapeAttribute(ticketId)}', window.firebaseCreatedAt_${escapeAttribute(id)})">✓ Müqaviləyə bax</button>`;
+                    } else {
+                        contractButtonHtml = `<button type="button" class="contract-btn" onclick="generateSponsorContract('${escapeAttribute(name)}', '${escapeAttribute(contact)}', '${escapeAttribute(ticketId)}', window.firebaseCreatedAt_${escapeAttribute(id)})" title="Müqavilə yarat">Müqavilə yarat</button>`;
+                    }
 
                     const tr = document.createElement("tr");
                     tr.className = viewed ? "status-viewed" : "status-waiting";
@@ -1657,7 +1929,17 @@
                         <td data-label="Əlaqə">${escapeHtml(contact)}</td>
                         <td data-label="Məzmun" class="interests-cell">${escapeHtml(message)}</td>
                         <td data-label="Tarix">${escapeHtml(date)}</td>
-                        <td data-label="Əməliyyat"><div class="action-container">${contractButtonHtml}<button type="button" class="delete-btn" onclick="deleteSponsorship('${escapeAttribute(id)}', '${escapeAttribute(ticketId)}')">Sil</button><button type="button" class="status-btn ${viewed ? "checked" : ""}" onclick="toggleSponsorshipStatus('${escapeAttribute(id)}', ${viewed})">${viewed ? "✓" : "•"}</button></div></td>
+                        <td data-label="Əməliyyat">
+                            <div class="action-container">
+                                ${contractButtonHtml}
+                                <button type="button" class="delete-btn" onclick="deleteSponsorship('${escapeAttribute(id)}', '${escapeAttribute(ticketId)}')" title="Sil">
+                                    <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                                </button>
+                                <button type="button" class="status-btn ${viewed ? "checked" : ""}" onclick="toggleSponsorshipStatus('${escapeAttribute(id)}', ${viewed})">
+                                    ${viewed ? "✓ Cavablandı" : "• Gözləyir"}
+                                </button>
+                            </div>
+                        </td>
                     `;
                     window[`firebaseCreatedAt_${id}`] = rawCreatedAt;
                     tbody.appendChild(tr);
@@ -1666,59 +1948,127 @@
                     card.className = "sponsor-mobile-card " + (viewed ? "status-viewed" : "status-waiting");
                     card.innerHTML = `
                         <div class="sponsor-mobile-header" onclick="toggleMobileAccordion(this.parentElement)">
-                            <div style="display: flex; align-items: center; gap: 8px;"><span class="sponsor-ticket-id">${escapeHtml(ticketId)}</span><span style="font-size: 0.82rem; font-weight: 700;">${escapeHtml(name)}</span></div>
-                            <span class="sponsor-arrow">›</span>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span class="sponsor-ticket-id">${escapeHtml(ticketId)}</span>
+                                <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-main);">${escapeHtml(name)}</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <span style="font-size: 0.68rem; font-weight: 700; color: ${viewed ? 'var(--success)' : '#D97706'}">${viewed ? 'Cavablandı' : 'Gözləyir'}</span>
+                                <span class="sponsor-arrow">›</span>
+                            </div>
                         </div>
                         <div class="sponsor-mobile-body">
-                            <div class="sponsor-field"><b>Əlaqə:</b> ${escapeHtml(contact)}</div>
-                            <div class="sponsor-field"><b>Məzmun:</b> ${escapeHtml(message)}</div>
-                            <div style="display: flex; gap: 6px; margin-top: 12px;">${hasContract ? `<button type="button" class="view-contract-btn" style="flex:1;" onclick="viewExistingContract('${escapeAttribute(name)}', '${escapeAttribute(contact)}', '${escapeAttribute(ticketId)}', window.firebaseCreatedAt_${escapeAttribute(id)})">Müqavilə</button>` : `<button type="button" class="contract-btn" style="flex:1;" onclick="generateSponsorContract('${escapeAttribute(name)}', '${escapeAttribute(contact)}', '${escapeAttribute(ticketId)}', window.firebaseCreatedAt_${escapeAttribute(id)})">Müqavilə yarat</button>`}</div>
+                            <div class="sponsor-field"><b>Əlaqə Vasitəsi:</b> ${escapeHtml(contact)}</div>
+                            <div class="sponsor-field"><b>Müraciət Məzmunu:</b> ${escapeHtml(message)}</div>
+                            <div class="sponsor-field"><b>Tarix:</b> ${escapeHtml(date)}</div>
+                            <div style="display: flex; gap: 6px; margin-top: 12px; align-items: center; flex-wrap: wrap;">
+                                ${hasContract ? `<button type="button" class="view-contract-btn" style="flex:1; justify-content:center; padding:8px;" onclick="viewExistingContract('${escapeAttribute(name)}', '${escapeAttribute(contact)}', '${escapeAttribute(ticketId)}', window.firebaseCreatedAt_${escapeAttribute(id)})">✓ Müqaviləyə bax</button>` : `<button type="button" class="contract-btn" style="flex:1; padding: 8px 10px; font-size: 0.72rem;" onclick="generateSponsorContract('${escapeAttribute(name)}', '${escapeAttribute(contact)}', '${escapeAttribute(ticketId)}', window.firebaseCreatedAt_${escapeAttribute(id)})">Müqavilə yarat</button>`}
+                                <button type="button" class="status-btn ${viewed ? "checked" : ""}" style="flex:1; padding: 8px; font-size: 0.76rem;" onclick="toggleSponsorshipStatus('${escapeAttribute(id)}', ${viewed})">
+                                    ${viewed ? "✓ Cavablandı" : "• Gözləyir"}
+                                </button>
+                                <button type="button" class="delete-btn" style="padding: 8px 12px;" onclick="deleteSponsorship('${escapeAttribute(id)}', '${escapeAttribute(ticketId)}')" title="Sil">
+                                    <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                                </button>
+                            </div>
                         </div>
                     `;
                     mobileContainer.appendChild(card);
                 });
+
                 updateWaitingCounters(currentWaitingOrders, currentWaitingSponsors);
             });
         }
 
-        /* PORTFOLIO */
+        /* PORTFOLIO METODLARI */
         let portfolioUnsubscribe = null;
         function startListeningPortfolio() {
             if (portfolioUnsubscribe) portfolioUnsubscribe();
-            portfolioUnsubscribe = db.collection("portfolio").onSnapshot(function (snapshot) { renderPortfolioAdmin(snapshot); });
+            portfolioUnsubscribe = db.collection("portfolio").onSnapshot(function (snapshot) {
+                renderPortfolioAdmin(snapshot);
+            });
         }
 
         function renderPortfolioAdmin(snapshot) {
             const container = document.getElementById("portfolioAdminGrid");
             container.innerHTML = "";
-            if (snapshot.empty) { container.innerHTML = `<div class="empty-portfolio"><strong>Portfolio boşdur</strong></div>`; return; }
+            if (snapshot.empty) {
+                container.innerHTML = `<div class="empty-portfolio"><strong>Portfolio boşdur</strong><br><br>İlk kitabı əlavə etmək üçün yuxarıdakı düymədən istifadə edin.</div>`;
+                return;
+            }
 
-            const docs = []; snapshot.forEach(doc => docs.push({ id: doc.id, data: doc.data() }));
+            const docs = [];
+            snapshot.forEach(doc => docs.push({ id: doc.id, data: doc.data() }));
+
             const list = document.createElement("div");
-            list.className = "portfolio-list";
-            list.innerHTML = `<div class="portfolio-list-header"><div>Şəkil</div><div>Kitab</div><div>Müəllif</div><div>Tarix</div><div style="text-align:right">Əməliyyat</div></div>`;
+            list.className = "portfolio-list desktop-portfolio-table";
+            list.innerHTML = `
+                <div class="portfolio-list-header">
+                    <div>Şəkil</div>
+                    <div>Kitab / Hekayə</div>
+                    <div>Müəllif</div>
+                    <div>Tarix</div>
+                    <div style="text-align:right">Əməliyyat</div>
+                </div>
+            `;
 
             const mobileList = document.createElement("div");
             mobileList.className = "portfolio-mobile-list";
 
             docs.forEach(function (item) {
-                const data = item.data; let date = "Tarix yoxdur";
+                const data = item.data;
+                let date = "Tarix yoxdur";
                 if (data.createdAt && typeof data.createdAt.toDate === "function") {
-                    date = data.createdAt.toDate().toLocaleString("az-AZ", { day: "2-digit", month: "2-digit", year: "numeric" });
+                    date = data.createdAt.toDate().toLocaleString("az-AZ", {
+                        day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"
+                    });
                 }
-                const title = data.title || "Adsız"; const author = data.author || "Müəllif yoxdur"; const imageUrl = data.imageUrl || "";
+
+                const title = data.title || "Adsız portfolio";
+                const author = data.author || "Müəllif qeyd edilməyib";
+                const imageUrl = data.imageUrl || "";
 
                 const itemElement = document.createElement("div");
                 itemElement.className = "portfolio-list-item";
                 itemElement.innerHTML = `
-                    <div class="portfolio-thumbnail-wrap">${imageUrl ? `<img src="${escapeAttribute(imageUrl)}" class="portfolio-thumbnail" alt="">` : `<div class="portfolio-no-image">Yoxdur</div>`}</div>
+                    <div class="portfolio-thumbnail-wrap">
+                        ${imageUrl ? `<img src="${escapeAttribute(imageUrl)}" class="portfolio-thumbnail" alt="${escapeAttribute(title)}">` : `<div class="portfolio-no-image">Şəkil yoxdur</div>`}
+                    </div>
                     <div class="portfolio-list-title">${escapeHtml(title)}</div>
                     <div class="portfolio-list-author">${escapeHtml(author)}</div>
                     <div class="portfolio-date">${escapeHtml(date)}</div>
-                    <div class="portfolio-list-actions"><button type="button" class="portfolio-action-btn edit-portfolio-btn" onclick="editPortfolio('${escapeAttribute(item.id)}')">Redaktə</button><button type="button" class="portfolio-action-btn delete-portfolio-btn" onclick="deletePortfolio('${escapeAttribute(item.id)}', '${escapeAttribute(title)}')">Sil</button></div>
+                    <div class="portfolio-list-actions">
+                        ${imageUrl ? `<button type="button" class="portfolio-action-btn view-image-btn" title="Şəkilə bax" onclick="openImageViewer('${escapeAttribute(imageUrl)}', '${escapeAttribute(title)}')"><svg viewBox="0 0 24 24"><path d="M12 5c-5 0-9.27 3.11-11 7 1.73 3.89 6 7 11 7s9.27-3.11 11-7-1.73-3.89-6-7-11-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></button>` : ""}
+                        <button type="button" class="portfolio-action-btn edit-portfolio-btn" onclick="editPortfolio('${escapeAttribute(item.id)}')">Redaktə</button>
+                        <button type="button" class="portfolio-action-btn delete-portfolio-btn" onclick="deletePortfolio('${escapeAttribute(item.id)}', '${escapeAttribute(title)}')">Sil</button>
+                    </div>
                 `;
                 list.appendChild(itemElement);
+
+                const mobCard = document.createElement("div");
+                mobCard.className = "sponsor-mobile-card portfolio-mobile-card";
+                mobCard.innerHTML = `
+                    <div class="sponsor-mobile-header portfolio-mobile-header" onclick="toggleMobileAccordion(this.parentElement)">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            ${imageUrl ? `<img src="${escapeAttribute(imageUrl)}" style="width:40px; height:40px; object-fit:cover; border-radius:6px;" alt="">` : `<div style="width:40px; height:40px; background:#f1f5f9; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.55rem;">Yoxdur</div>`}
+                            <div>
+                                <div style="font-size: 0.85rem; font-weight: 800; color: var(--primary-lux);">${escapeHtml(title)}</div>
+                                <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700;">${escapeHtml(author)}</div>
+                            </div>
+                        </div>
+                        <span class="sponsor-arrow portfolio-arrow">›</span>
+                    </div>
+                    <div class="sponsor-mobile-body portfolio-mobile-body">
+                        <div class="sponsor-field"><b>Yaradılma Tarixi:</b> ${escapeHtml(date)}</div>
+                        <div style="display: flex; gap: 6px; margin-top: 12px; align-items: center;">
+                            ${imageUrl ? `<button type="button" class="portfolio-action-btn view-image-btn" style="width:36px; height:36px;" onclick="openImageViewer('${escapeAttribute(imageUrl)}', '${escapeAttribute(title)}')"><svg viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M12 5c-5 0-9.27 3.11-11 7 1.73 3.89 6 7 11 7s9.27-3.11 11-7-1.73-3.89-6-7-11-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></button>` : ""}
+                            <button type="button" class="portfolio-action-btn edit-portfolio-btn" style="flex:1;" onclick="editPortfolio('${escapeAttribute(item.id)}')">Redaktə</button>
+                            <button type="button" class="portfolio-action-btn delete-portfolio-btn" style="flex:1;" onclick="deletePortfolio('${escapeAttribute(item.id)}', '${escapeAttribute(title)}')">Sil</button>
+                        </div>
+                    </div>
+                `;
+                mobileList.appendChild(mobCard);
             });
+
             container.appendChild(list);
             container.appendChild(mobileList);
         }
@@ -1733,43 +2083,63 @@
             document.getElementById("uploadPlaceholder").style.display = "block";
             document.getElementById("portfolioModal").classList.add("active");
         }
-        function closePortfolioModal() { document.getElementById("portfolioModal").classList.remove("active"); }
+
+        function closePortfolioModal() {
+            document.getElementById("portfolioModal").classList.remove("active");
+        }
 
         function editPortfolio(docId) {
             db.collection("portfolio").doc(docId).get().then(function (doc) {
-                if (!doc.exists) return; const data = doc.data();
-                document.getElementById("modalTitle").innerText = "Redaktə et";
+                if (!doc.exists) return;
+                const data = doc.data();
+                document.getElementById("modalTitle").innerText = "Portfolioya düzəliş et";
                 document.getElementById("portfolioDocId").value = docId;
                 document.getElementById("portfolioTitle").value = data.title || "";
                 document.getElementById("portfolioAuthor").value = data.author || "";
+                const preview = document.getElementById("imagePreview");
+                if (data.imageUrl) {
+                    preview.src = data.imageUrl;
+                    preview.style.display = "block";
+                    document.getElementById("uploadPlaceholder").style.display = "none";
+                }
                 document.getElementById("portfolioModal").classList.add("active");
             });
         }
 
         function previewPortfolioImage(event) {
-            const file = event.target.files[0]; if (!file) return;
+            const file = event.target.files[0];
+            if (!file) return;
             const reader = new FileReader();
             reader.onload = function (e) {
                 const preview = document.getElementById("imagePreview");
-                preview.src = e.target.result; preview.style.display = "block";
+                preview.src = e.target.result;
+                preview.style.display = "block";
                 document.getElementById("uploadPlaceholder").style.display = "none";
             };
             reader.readAsDataURL(file);
         }
 
         function optimizeImage(file) {
-            return new Promise(function (resolve) {
+            return new Promise(function (resolve, reject) {
                 const reader = new FileReader();
                 reader.onload = function (event) {
                     const img = new Image();
                     img.onload = function () {
-                        const maxSize = 1200; let width = img.width, height = img.height;
+                        const maxSize = 1200;
+                        let width = img.width, height = img.height;
                         if (width > maxSize || height > maxSize) {
-                            if (width > height) { height = Math.round(height * maxSize / width); width = maxSize; }
-                            else { width = Math.round(width * maxSize / height); height = maxSize; }
+                            if (width > height) {
+                                height = Math.round(height * maxSize / width);
+                                width = maxSize;
+                            } else {
+                                width = Math.round(width * maxSize / height);
+                                height = maxSize;
+                            }
                         }
-                        const canvas = document.createElement("canvas"); canvas.width = width; canvas.height = height;
-                        const ctx = canvas.getContext("2d"); ctx.drawImage(img, 0, 0, width, height);
+                        const canvas = document.createElement("canvas");
+                        canvas.width = width; canvas.height = height;
+                        const ctx = canvas.getContext("2d");
+                        ctx.drawImage(img, 0, 0, width, height);
                         resolve(canvas.toDataURL("image/webp", .72));
                     };
                     img.src = event.target.result;
@@ -1784,19 +2154,30 @@
             const docId = document.getElementById("portfolioDocId").value.trim();
             const file = document.getElementById("portfolioImage").files[0];
             const button = document.getElementById("savePortfolioBtn");
-            if (!title || !author) { alert("Xanaları doldurun."); return; }
+
+            if (!title || !author) { alert("Xanaları tam doldurun."); return; }
             button.disabled = true;
+
             try {
-                let imageUrl = null; if (file) imageUrl = await optimizeImage(file);
+                let imageUrl = null;
+                if (file) imageUrl = await optimizeImage(file);
                 if (docId) {
                     const updateData = { title, author, updatedAt: firebase.firestore.FieldValue.serverTimestamp() };
                     if (imageUrl) updateData.imageUrl = imageUrl;
                     await db.collection("portfolio").doc(docId).update(updateData);
                 } else {
-                    await db.collection("portfolio").add({ title, author, imageUrl, createdAt: firebase.firestore.FieldValue.serverTimestamp(), updatedAt: firebase.firestore.FieldValue.serverTimestamp() });
+                    await db.collection("portfolio").add({
+                        title, author, imageUrl,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
                 }
                 closePortfolioModal();
-            } catch (err) { alert("Xəta: " + err.message); } finally { button.disabled = false; }
+            } catch (err) {
+                alert("Xəta: " + err.message);
+            } finally {
+                button.disabled = false;
+            }
         }
 
         async function deletePortfolio(docId, title) {
@@ -1804,32 +2185,38 @@
             await db.collection("portfolio").doc(docId).delete();
         }
 
-        /* E-KİTAB KODLARI İDARƏETMƏSİ (YENİ ƏLAVƏ) */
+        /* E-KİTAB KODLARI İDARƏETMƏSİ (BÜTÖV VƏ İŞLƏK ƏLAVƏ) */
         let codesUnsubscribe = null;
         function startListeningBookCodes() {
             if (codesUnsubscribe) codesUnsubscribe();
             codesUnsubscribe = db.collection("codes").orderBy("createdAt", "desc").onSnapshot(function (snapshot) {
                 renderBookCodesAdmin(snapshot);
-            }, function() {
+            }, function(err) {
                 db.collection("codes").onSnapshot(renderBookCodesAdmin);
             });
         }
 
         function renderBookCodesAdmin(snapshot) {
             const container = document.getElementById("codesAdminGrid");
+            if (!container) return;
             container.innerHTML = "";
             if (snapshot.empty) {
                 container.innerHTML = `<div class="empty-portfolio"><strong>Hələ heç bir yükləmə kodu yaradılmayıb.</strong><br><br>Valideynlərə vermək üçün yuxarıdakı düymədən yeni kod əlavə edin.</div>`;
                 return;
             }
 
-            const docs = []; snapshot.forEach(doc => docs.push({ id: doc.id, data: doc.data() }));
+            const docs = [];
+            snapshot.forEach(doc => docs.push({ id: doc.id, data: doc.data() }));
 
             const list = document.createElement("div");
-            list.className = "portfolio-list";
+            list.className = "portfolio-list desktop-portfolio-table";
             list.innerHTML = `
                 <div class="portfolio-list-header" style="grid-template-columns: 140px minmax(250px, 2fr) 150px 160px 150px;">
-                    <div>Kod</div><div>Google Drive Linki</div><div>Status</div><div>Tarix</div><div style="text-align:right">Əməliyyat</div>
+                    <div>Kod</div>
+                    <div>Google Drive Linki</div>
+                    <div>Status</div>
+                    <div>Tarix</div>
+                    <div style="text-align:right">Əməliyyat</div>
                 </div>
             `;
 
@@ -1837,11 +2224,14 @@
             mobileList.className = "portfolio-mobile-list";
 
             docs.forEach(function (item) {
-                const data = item.data; const codeId = item.id; const isUsed = data.used || false;
+                const data = item.data;
+                const codeId = item.id;
+                const isUsed = data.used || false;
                 let date = "Tarix yoxdur";
                 if (data.createdAt && typeof data.createdAt.toDate === "function") {
                     date = data.createdAt.toDate().toLocaleString("az-AZ", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" });
                 }
+
                 const link = data.downloadUrl || data.link || "Link yoxdur";
 
                 const itemElement = document.createElement("div");
@@ -1850,9 +2240,15 @@
                 itemElement.innerHTML = `
                     <div><strong style="font-family:monospace; color:var(--primary-lux); font-size: 1rem; background:#f1f5f9; padding:4px 8px; border-radius:6px;">${escapeHtml(codeId)}</strong></div>
                     <div style="color: var(--text-muted); font-size: 0.82rem; word-break: break-all; padding-right: 15px;"><a href="${escapeAttribute(link)}" target="_blank" style="color: var(--edit); text-decoration: none;">${escapeHtml(link)}</a></div>
-                    <div><span class="age-badge" style="background: ${isUsed ? 'var(--danger-bg)' : 'var(--success-bg)'}; color: ${isUsed ? 'var(--danger)' : 'var(--success)'};">${isUsed ? "✓ İstifadə olunub" : "○ Gözləyir"}</span></div>
+                    <div>
+                        <span class="age-badge" style="background: ${isUsed ? 'var(--danger-bg)' : 'var(--success-bg)'}; color: ${isUsed ? 'var(--danger)' : 'var(--success)'};">
+                            ${isUsed ? "✓ İstifadə olunub" : "○ Gözləyir"}
+                        </span>
+                    </div>
                     <div class="portfolio-date">${escapeHtml(date)}</div>
-                    <div class="portfolio-list-actions"><button type="button" class="portfolio-action-btn delete-portfolio-btn" onclick="deleteBookCode('${escapeAttribute(codeId)}')">Sil</button></div>
+                    <div class="portfolio-list-actions">
+                        <button type="button" class="portfolio-action-btn delete-portfolio-btn" onclick="deleteBookCode('${escapeAttribute(codeId)}')">Sil</button>
+                    </div>
                 `;
                 list.appendChild(itemElement);
 
@@ -1860,17 +2256,27 @@
                 mobCard.className = "sponsor-mobile-card portfolio-mobile-card";
                 mobCard.innerHTML = `
                     <div class="sponsor-mobile-header portfolio-mobile-header" onclick="toggleMobileAccordion(this.parentElement)">
-                        <div style="display: flex; align-items: center; gap: 10px;"><span class="sponsor-ticket-id">${escapeHtml(codeId)}</span><span class="age-badge" style="font-size: 0.65rem; background: ${isUsed ? 'var(--danger-bg)' : 'var(--success-bg)'}; color: ${isUsed ? 'var(--danger)' : 'var(--success)'};">${isUsed ? "İstifadə olunub" : "Gözləyir"}</span></div>
-                        <span class="sponsor-arrow">›</span>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span class="sponsor-ticket-id">${escapeHtml(codeId)}</span>
+                            <span class="age-badge" style="font-size: 0.65rem; background: ${isUsed ? 'var(--danger-bg)' : 'var(--success-bg)'}; color: ${isUsed ? 'var(--danger)' : 'var(--success)'};">
+                                ${isUsed ? "İstifadə olunub" : "Gözləyir"}
+                            </span>
+                        </div>
+                        <span class="sponsor-arrow portfolio-arrow">›</span>
                     </div>
                     <div class="sponsor-mobile-body portfolio-mobile-body">
                         <div class="sponsor-field"><b>Drive Linki:</b> <a href="${escapeAttribute(link)}" target="_blank" style="color: var(--edit); word-break:break-all;">${escapeHtml(link)}</a></div>
-                        <div style="display: flex; gap: 5px; margin-top: 12px;"><button type="button" class="portfolio-action-btn delete-portfolio-btn" style="width:100%;" onclick="deleteBookCode('${escapeAttribute(codeId)}')">Kodu Sil</button></div>
+                        <div class="sponsor-field"><b>Tarix:</b> ${escapeHtml(date)}</div>
+                        <div style="display: flex; gap: 5px; margin-top: 12px;">
+                            <button type="button" class="portfolio-action-btn delete-portfolio-btn" style="width:100%;" onclick="deleteBookCode('${escapeAttribute(codeId)}')">Kodu Sil</button>
+                        </div>
                     </div>
                 `;
                 mobileList.appendChild(mobCard);
             });
-            container.appendChild(list); container.appendChild(mobileList);
+
+            container.appendChild(list);
+            container.appendChild(mobileList);
         }
 
         function openCodeModal() {
@@ -1879,12 +2285,17 @@
             generateRandomCode();
             document.getElementById("codeModal").classList.add("active");
         }
-        function closeCodeModal() { document.getElementById("codeModal").classList.remove("active"); }
+
+        function closeCodeModal() {
+            document.getElementById("codeModal").classList.remove("active");
+        }
 
         function generateRandomCode() {
             const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
             let code = "GNL-";
-            for (let i = 0; i < 4; i++) { code += chars.charAt(Math.floor(Math.random() * chars.length)); }
+            for (let i = 0; i < 4; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
             document.getElementById("newBookCode").value = code;
         }
 
@@ -1892,79 +2303,186 @@
             const code = document.getElementById("newBookCode").value.trim().toUpperCase();
             const link = document.getElementById("newDriveLink").value.trim();
             const btn = document.getElementById("saveCodeBtn");
-            if (!code || !link) { alert("Zəhmət olmasa kodu və Google Drive linkini daxil edin."); return; }
-            btn.disabled = true; btn.innerText = "Yadda saxlanılır...";
+
+            if (!code || !link) {
+                alert("Zəhmət olmasa kodu və Google Drive linkini daxil edin.");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerText = "Yadda saxlanılır...";
+
             try {
                 await db.collection("codes").doc(code).set({
-                    downloadUrl: link, used: false,
+                    downloadUrl: link,
+                    used: false,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp()
                 });
                 alert("Kod uğurla əlavə olundu!");
                 closeCodeModal();
-            } catch (err) { alert("Xəta: " + err.message); }
-            finally { btn.disabled = false; btn.innerText = "Bazaya Əlavə Et"; }
+            } catch (err) {
+                alert("Xəta baş verdi: " + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Bazaya Əlavə Et";
+            }
         }
 
         async function deleteBookCode(codeId) {
             if (!confirm(`"${codeId}" kodunu silmək istədiyinizdən əminsiniz?`)) return;
-            try { await db.collection("codes").doc(codeId).delete(); alert("Kod silindi."); }
-            catch (err) { alert("Silinmə xətası: " + err.message); }
+            try {
+                await db.collection("codes").doc(codeId).delete();
+                alert("Kod silindi.");
+            } catch (err) {
+                alert("Silinmə xətası: " + err.message);
+            }
         }
 
-        /* NOTIFICATIONS */
+        /* BİLDİRİŞ İDARƏETMƏSİ & MƏTN FORMATLAMA */
         let notificationUnsubscribe = null;
+
         function formatNoticeText(tag) {
             const textarea = document.getElementById("noticeMessage");
-            const start = textarea.selectionStart; const end = textarea.selectionEnd;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
             const selectedText = textarea.value.substring(start, end);
-            if (!selectedText) { alert("Mətn seçin."); return; }
-            textarea.setRangeText(`<${tag}>${selectedText}</${tag}>`, start, end, 'select');
+
+            if (!selectedText) {
+                alert("Zəhmət olmasa formatlamaq istədiyiniz mətni seçin.");
+                return;
+            }
+
+            const replacement = `<${tag}>${selectedText}</${tag}>`;
+            textarea.setRangeText(replacement, start, end, 'select');
         }
 
         function formatNoticeLink() {
             const textarea = document.getElementById("noticeMessage");
-            const start = textarea.selectionStart; const end = textarea.selectionEnd;
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
             const selectedText = textarea.value.substring(start, end) || "Keçid";
-            let url = prompt("Link daxil edin:", "https://"); if (!url) return;
-            textarea.setRangeText(`<a href="${url}" target="_blank">${selectedText}</a>`, start, end, 'select');
+
+            let url = prompt("Keçid linkini daxil edin (məsələn: https://gunelsstory.com/ və ya tel:+994...):", "https://");
+            if (!url) return;
+
+            const replacement = `<a href="${url}" target="_blank">${selectedText}</a>`;
+            textarea.setRangeText(replacement, start, end, 'select');
         }
 
         function startListeningNotifications() {
             if (notificationUnsubscribe) notificationUnsubscribe();
             notificationUnsubscribe = db.collection("notifications").orderBy("createdAt", "desc").onSnapshot(function (snapshot) {
                 renderNotificationsAdmin(snapshot);
-            }, function () { db.collection("notifications").onSnapshot(renderNotificationsAdmin); });
+            }, function (err) {
+                db.collection("notifications").onSnapshot(renderNotificationsAdmin);
+            });
         }
 
         function renderNotificationsAdmin(snapshot) {
-            const container = document.getElementById("notificationsAdminGrid"); container.innerHTML = "";
-            if (snapshot.empty) { container.innerHTML = `<div class="empty-portfolio"><strong>Bildiriş yoxdur.</strong></div>`; return; }
+            const container = document.getElementById("notificationsAdminGrid");
+            if (!container) return;
+            container.innerHTML = "";
 
-            const docs = []; snapshot.forEach(doc => docs.push({ id: doc.id, data: doc.data() }));
-            const list = document.createElement("div"); list.className = "portfolio-list";
-            list.innerHTML = `<div class="portfolio-list-header" style="grid-template-columns: minmax(180px, 1.2fr) minmax(240px, 2fr) 140px 140px 200px;"><div>Başlıq</div><div>Məzmun</div><div>Status</div><div>Tarix</div><div style="text-align:right">Əməliyyat</div></div>`;
+            if (snapshot.empty) {
+                container.innerHTML = `<div class="empty-portfolio"><strong>Hələ heç bir bildiriş yaradılmayıb.</strong><br><br>Yeni bildiriş yaratmaq üçün yuxarıdakı düyməyə klikləyin.</div>`;
+                return;
+            }
 
-            const mobileList = document.createElement("div"); mobileList.className = "portfolio-mobile-list";
+            const docs = [];
+            snapshot.forEach(doc => docs.push({ id: doc.id, data: doc.data() }));
+
+            const list = document.createElement("div");
+            list.className = "portfolio-list desktop-portfolio-table";
+            list.innerHTML = `
+                <div class="portfolio-list-header" style="grid-template-columns: minmax(180px, 1.2fr) minmax(240px, 2fr) 140px 140px 200px;">
+                    <div>Başlıq</div>
+                    <div>Məzmun</div>
+                    <div>Status</div>
+                    <div>Tarix</div>
+                    <div style="text-align:right">Əməliyyat</div>
+                </div>
+            `;
+
+            const mobileList = document.createElement("div");
+            mobileList.className = "portfolio-mobile-list";
 
             docs.forEach(function (item) {
-                const data = item.data; const id = item.id; const isActive = data.isActive || false;
+                const data = item.data;
+                const id = item.id;
+                const isActive = data.isActive || false;
+
                 let date = "Tarix yoxdur";
                 if (data.createdAt && typeof data.createdAt.toDate === "function") {
-                    date = data.createdAt.toDate().toLocaleString("az-AZ", { day: "2-digit", month: "2-digit", year: "numeric" });
+                    date = data.createdAt.toDate().toLocaleString("az-AZ", {
+                        day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit"
+                    });
                 }
+
                 const itemElement = document.createElement("div");
                 itemElement.className = "portfolio-list-item";
                 itemElement.style.gridTemplateColumns = "minmax(180px, 1.2fr) minmax(240px, 2fr) 140px 140px 200px";
                 itemElement.innerHTML = `
-                    <div class="portfolio-list-title">${escapeHtml(data.title || "Adsız")}</div>
-                    <div style="color: var(--text-muted); font-size: 0.85rem;">${data.message || ""}</div>
-                    <div><span class="age-badge" style="background: ${isActive ? 'var(--success-bg)' : 'var(--danger-bg)'}; color: ${isActive ? 'var(--success)' : 'var(--danger)'};">${isActive ? "● PUBLISH" : "○ UNPUBLISH"}</span></div>
+                    <div class="portfolio-list-title" style="font-size: 1rem;">
+                        ${escapeHtml(data.title || "Adsız Bildiriş")}
+                    </div>
+                    <div style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; padding-right: 15px;">
+                        ${data.message || ""}
+                    </div>
+                    <div>
+                        <span class="age-badge" style="background: ${isActive ? 'var(--success-bg)' : 'var(--danger-bg)'}; color: ${isActive ? 'var(--success)' : 'var(--danger)'};">
+                            ${isActive ? "● PUBLISH" : "○ UNPUBLISH"}
+                        </span>
+                    </div>
                     <div class="portfolio-date">${escapeHtml(date)}</div>
-                    <div class="portfolio-list-actions"><button type="button" class="portfolio-action-btn ${isActive ? 'unpublish-btn' : 'publish-btn'}" onclick="toggleNotificationStatus('${escapeAttribute(id)}', ${isActive})">${isActive ? "Stop" : "Publish"}</button><button type="button" class="portfolio-action-btn edit-portfolio-btn" onclick="editNotification('${escapeAttribute(id)}')">Edit</button><button type="button" class="portfolio-action-btn delete-portfolio-btn" onclick="deleteNotification('${escapeAttribute(id)}')">Delete</button></div>
+                    <div class="portfolio-list-actions">
+                        <button type="button" class="portfolio-action-btn ${isActive ? 'unpublish-btn' : 'publish-btn'}" onclick="toggleNotificationStatus('${escapeAttribute(id)}', ${isActive})">
+                            ${isActive ? "Stop" : "Publish"}
+                        </button>
+                        <button type="button" class="portfolio-action-btn edit-portfolio-btn" onclick="editNotification('${escapeAttribute(id)}')">
+                            Edit
+                        </button>
+                        <button type="button" class="portfolio-action-btn delete-portfolio-btn" onclick="deleteNotification('${escapeAttribute(id)}')">
+                            Delete
+                        </button>
+                    </div>
                 `;
                 list.appendChild(itemElement);
+
+                const mobCard = document.createElement("div");
+                mobCard.className = "sponsor-mobile-card portfolio-mobile-card";
+                mobCard.innerHTML = `
+                    <div class="sponsor-mobile-header portfolio-mobile-header" onclick="toggleMobileAccordion(this.parentElement)">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div>
+                                <div style="font-size: 0.9rem; font-weight: 800; color: var(--primary-lux);">${escapeHtml(data.title || "Adsız Bildiriş")}</div>
+                                <span class="age-badge" style="margin-top:4px; font-size: 0.65rem; background: ${isActive ? 'var(--success-bg)' : 'var(--danger-bg)'}; color: ${isActive ? 'var(--success)' : 'var(--danger)'};">
+                                    ${isActive ? "● PUBLISH" : "○ UNPUBLISH"}
+                                </span>
+                            </div>
+                        </div>
+                        <span class="sponsor-arrow portfolio-arrow">›</span>
+                    </div>
+                    <div class="sponsor-mobile-body portfolio-mobile-body">
+                        <div class="sponsor-field"><b>Məzmun:</b> ${data.message || ""}</div>
+                        <div class="sponsor-field"><b>Tarix:</b> ${escapeHtml(date)}</div>
+                        <div style="display: flex; gap: 5px; margin-top: 12px; align-items: center;">
+                            <button type="button" class="portfolio-action-btn ${isActive ? 'unpublish-btn' : 'publish-btn'}" style="flex:1; padding:7px 4px; font-size:0.7rem;" onclick="toggleNotificationStatus('${escapeAttribute(id)}', ${isActive})">
+                                ${isActive ? "Stop" : "Publish"}
+                            </button>
+                            <button type="button" class="portfolio-action-btn edit-portfolio-btn" style="flex:1; padding:7px 4px; font-size:0.7rem;" onclick="editNotification('${escapeAttribute(id)}')">
+                                Edit
+                            </button>
+                            <button type="button" class="portfolio-action-btn delete-portfolio-btn" style="flex:1; padding:7px 4px; font-size:0.7rem;" onclick="deleteNotification('${escapeAttribute(id)}')">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                `;
+                mobileList.appendChild(mobCard);
             });
-            container.appendChild(list); container.appendChild(mobileList);
+
+            container.appendChild(list);
+            container.appendChild(mobileList);
         }
 
         function openNotificationModal() {
@@ -1975,12 +2493,16 @@
             document.getElementById("noticeIsActive").checked = true;
             document.getElementById("notificationModal").classList.add("active");
         }
-        function closeNotificationModal() { document.getElementById("notificationModal").classList.remove("active"); }
+
+        function closeNotificationModal() {
+            document.getElementById("notificationModal").classList.remove("active");
+        }
 
         function editNotification(docId) {
             db.collection("notifications").doc(docId).get().then(function (doc) {
-                if (!doc.exists) return; const data = doc.data();
-                document.getElementById("noticeModalTitle").innerText = "Redaktə Et";
+                if (!doc.exists) return;
+                const data = doc.data();
+                document.getElementById("noticeModalTitle").innerText = "Bildirişi Redaktə Et";
                 document.getElementById("noticeDocId").value = docId;
                 document.getElementById("noticeTitle").value = data.title || "";
                 document.getElementById("noticeMessage").value = data.message || "";
@@ -1995,21 +2517,62 @@
             const isActive = document.getElementById("noticeIsActive").checked;
             const docId = document.getElementById("noticeDocId").value.trim();
             const btn = document.getElementById("saveNoticeBtn");
-            if (!title || !message) { alert("Xanaları doldurun."); return; }
+
+            if (!title || !message) {
+                alert("Zəhmət olmasa bildiriş başlığını və mətnini daxil edin.");
+                return;
+            }
+
             btn.disabled = true;
+            btn.innerText = "Yadda saxlanılır...";
+
             try {
-                if (docId) { await db.collection("notifications").doc(docId).update({ title, message, isActive, updatedAt: firebase.firestore.FieldValue.serverTimestamp() }); }
-                else { await db.collection("notifications").add({ title, message, isActive, createdAt: firebase.firestore.FieldValue.serverTimestamp(), updatedAt: firebase.firestore.FieldValue.serverTimestamp() }); }
+                if (docId) {
+                    await db.collection("notifications").doc(docId).update({
+                        title: title,
+                        message: message,
+                        isActive: isActive,
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    alert("Bildiriş yeniləndi!");
+                } else {
+                    await db.collection("notifications").add({
+                        title: title,
+                        message: message,
+                        isActive: isActive,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    alert("Bildiriş uğurla yaradıldı!");
+                }
                 closeNotificationModal();
-            } catch (err) { alert("Xəta: " + err.message); } finally { btn.disabled = false; }
+            } catch (err) {
+                alert("Xəta baş verdi: " + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Save";
+            }
         }
 
         async function toggleNotificationStatus(docId, currentStatus) {
-            await db.collection("notifications").doc(docId).update({ isActive: !currentStatus, updatedAt: firebase.firestore.FieldValue.serverTimestamp() });
+            try {
+                await db.collection("notifications").doc(docId).update({
+                    isActive: !currentStatus,
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            } catch (err) {
+                alert("Status dəyişdirilmədi: " + err.message);
+            }
         }
 
         async function deleteNotification(docId) {
-            if (!confirm("Silinsin?")) return; await db.collection("notifications").doc(docId).delete();
+            if (!confirm("Bu bildirişi tamamilə silmək istədiyinizdən əminsiniz?")) return;
+            try {
+                await db.collection("notifications").doc(docId).delete();
+                alert("Bildiriş silindi.");
+            } catch (err) {
+                alert("Silinmə xətası: " + err.message);
+            }
         }
 
         /* IMAGE VIEWER */
@@ -2017,19 +2580,42 @@
             const viewer = document.getElementById("imageViewer");
             document.getElementById("viewerImage").src = imageUrl;
             document.getElementById("viewerTitle").innerText = title || "Portfolio";
-            viewer.classList.add("active"); document.body.style.overflow = "hidden";
+            viewer.classList.add("active");
+            document.body.style.overflow = "hidden";
         }
-        function closeImageViewer() { document.getElementById("imageViewer").classList.remove("active"); document.body.style.overflow = ""; }
-        document.getElementById("imageViewer").addEventListener("click", function (e) { if (e.target === this) closeImageViewer(); });
 
+        function closeImageViewer() {
+            document.getElementById("imageViewer").classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        document.getElementById("imageViewer").addEventListener("click", function (e) {
+            if (e.target === this) closeImageViewer();
+        });
+
+        /* ESCAPE HANDLER */
         document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape") { closeImageViewer(); closePortfolioModal(); closeNotificationModal(); closeContractModal(); closeCodeModal(); }
+            if (e.key === "Escape") {
+                closeImageViewer();
+                closePortfolioModal();
+                closeNotificationModal();
+                closeContractModal();
+                closeCodeModal();
+            }
+            if (e.key === "Enter" && document.getElementById("loginOverlay").style.display !== "none") {
+                checkFirestoreLogin();
+            }
         });
 
         function escapeHtml(value) {
-            return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+            return String(value)
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;").replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
         }
+
         function escapeAttribute(value) { return escapeHtml(value); }
     </script>
 </body>
+
 </html>
