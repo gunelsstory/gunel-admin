@@ -119,11 +119,6 @@
         }
         .sidebar-top { display: flex; flex-direction: column; gap: 32px; }
         .sidebar-brand { display: flex; align-items: center; gap: 14px; padding: 0 6px; }
-        .brand-sun-icon {
-            width: 46px; height: 46px; border-radius: 14px; background: var(--sun-gradient);
-            display: flex; align-items: center; justify-content: center; color: #FFFFFF; box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
-        }
-        .brand-sun-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; }
         .brand-text h1 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.9px; color: var(--sun-amber); font-weight: 800; }
         .brand-text p { font-size: 1.05rem; color: var(--text-main); font-weight: 800; line-height: 1.2; }
 
@@ -211,7 +206,6 @@
         }
         .pricing-icon-box svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; }
 
-        /* ALT-ALTA KARTLAR */
         .cards-column-list { display: flex; flex-direction: column; gap: 16px; width: 100%; }
         .lux-card {
             background: var(--bg-surface); border-radius: var(--radius-lg); border: 1.5px solid var(--card-border-gold);
@@ -280,6 +274,17 @@
             width: 100%; background: var(--danger-bg); color: var(--danger); border: 1.5px solid rgba(225, 29, 72, 0.25);
             padding: 10px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer; transition: var(--transition);
         }
+
+        /* FORMATTING TOOLBAR STYLES */
+        .editor-toolbar {
+            display: flex; gap: 6px; margin-bottom: 8px; background: var(--bg-card-subtle);
+            padding: 6px; border-radius: 8px; border: 1px solid var(--border-card);
+        }
+        .editor-tool-btn {
+            background: var(--bg-surface); border: 1px solid var(--border-card); color: var(--text-main);
+            padding: 5px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: var(--transition);
+        }
+        .editor-tool-btn:hover { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
 
         /* MODALLAR */
         .lux-modal-overlay {
@@ -351,18 +356,18 @@
     </div>
 
     <!-- VEB LAYOUT -->
-<div class="admin-wrapper">
-    <aside class="sidebar">
-        <div class="sidebar-top">
-            <div class="sidebar-brand">
-                <div class="brand-sun-icon" style="background: none; box-shadow: none; padding: 0;">
-                    <img src="logo.png" alt="Gunel's Story Logo" style="width: 46px; height: 46px; object-fit: cover; border-radius: 14px; border: 1.5px solid var(--card-border-gold);">
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <div style="background: none; box-shadow: none; padding: 0;">
+                        <img src="logo.png" alt="Gunel's Story Logo" style="width: 46px; height: 46px; object-fit: cover; border-radius: 14px; border: 1.5px solid var(--card-border-gold);">
+                    </div>
+                    <div class="brand-text">
+                        <h1>Gunel's Story</h1>
+                        <p>Web Admin</p>
+                    </div>
                 </div>
-                <div class="brand-text">
-                    <h1>Gunel's Story</h1>
-                    <p>Web Admin</p>
-                </div>
-            </div>
 
                 <nav class="sidebar-menu">
                     <button class="nav-item active" onclick="switchNavTab('orders', this)">
@@ -589,7 +594,17 @@
             <label class="form-label-lux">Bildiriş Başlığı *</label>
             <input type="text" id="noticeTitleInput" class="form-input-lux" placeholder="Başlıq daxil edin">
             <label class="form-label-lux">Məzmun *</label>
-            <textarea id="noticeMessageInput" class="form-input-lux" style="min-height:100px;" placeholder="Bildiriş mətni..."></textarea>
+            
+            <!-- FORMATTING TOOLBAR -->
+            <div class="editor-toolbar">
+                <button type="button" class="editor-tool-btn" onclick="formatNoticeText('b')"><b>B</b> (Qalın)</button>
+                <button type="button" class="editor-tool-btn" onclick="formatNoticeText('i')"><i>I</i> (İtalik)</button>
+                <button type="button" class="editor-tool-btn" onclick="formatNoticeText('u')"><u>U</u> (Altı xətli)</button>
+                <button type="button" class="editor-tool-btn" onclick="insertNoticeLink()">🔗 Link</button>
+            </div>
+
+            <textarea id="noticeMessageInput" class="form-input-lux" style="min-height:110px;" placeholder="Bildiriş mətni..."></textarea>
+            
             <label style="display:flex; align-items:center; gap:8px; font-size:0.82rem; font-weight:700; margin-bottom:16px; cursor:pointer;">
                 <input type="checkbox" id="noticePublishCheckbox" checked style="width:18px; height:18px;">
                 Saytda aktivləşdir (Publish)
@@ -779,6 +794,29 @@
         }
 
         function closeSheet(id) { document.getElementById(id).classList.remove('active'); }
+
+        // MƏTNİ FORMATLAMA FUNKSİYALARI
+        function formatNoticeText(tag) {
+            const ta = document.getElementById('noticeMessageInput');
+            const start = ta.selectionStart;
+            const end = ta.selectionEnd;
+            const selectedText = ta.value.substring(start, end);
+            const replacement = `<${tag}>${selectedText}</${tag}>`;
+            ta.setRangeText(replacement, start, end, 'select');
+            ta.focus();
+        }
+
+        function insertNoticeLink() {
+            const ta = document.getElementById('noticeMessageInput');
+            const start = ta.selectionStart;
+            const end = ta.selectionEnd;
+            const selectedText = ta.value.substring(start, end) || "Link mətni";
+            const url = prompt("Link ünvanını (URL) daxil edin:", "https://");
+            if (!url) return;
+            const replacement = `<a href="${url}" target="_blank">${selectedText}</a>`;
+            ta.setRangeText(replacement, start, end, 'select');
+            ta.focus();
+        }
 
         // 1. SİFARİŞLƏR
         function listenOrders() {
