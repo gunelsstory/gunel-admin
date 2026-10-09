@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Gunel's Story - Ultra Luxury Web Admin</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
 
@@ -69,12 +69,13 @@
             --shadow-float: 0 14px 32px -4px rgba(0, 0, 0, 0.6);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; -webkit-tap-highlight-color: transparent; }
 
         body {
             background-color: var(--bg-base);
             color: var(--text-main);
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             overflow: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
@@ -111,8 +112,9 @@
         .login-btn:hover { background: var(--primary-blue-hover); transform: translateY(-1px); }
         .login-error { display: none; margin-top: 14px; padding: 10px; border-radius: 8px; background: var(--danger-bg); color: var(--danger); font-size: 0.82rem; font-weight: 700; }
 
-        .admin-wrapper { display: flex; width: 100vw; height: 100vh; overflow: hidden; }
+        .admin-wrapper { display: flex; width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; position: relative; }
 
+        /* SIDEBAR (Desktop) */
         .sidebar {
             width: 290px; background: var(--bg-surface); border-right: 1.5px solid var(--border-card);
             display: flex; flex-direction: column; justify-content: space-between; padding: 28px 20px; z-index: 100;
@@ -128,7 +130,7 @@
             background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; font-weight: 700;
             text-align: left; transition: var(--transition);
         }
-        .nav-item svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.1; transition: stroke 0.2s; }
+        .nav-item svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
         .nav-item:hover { background: var(--bg-card-subtle); color: var(--text-main); }
         .nav-item.active { background: var(--primary-blue); color: #FFFFFF; box-shadow: 0 6px 20px rgba(59, 73, 223, 0.35); }
         .nav-item.active svg { stroke: #FFFFFF; }
@@ -142,21 +144,32 @@
         .logout-btn:hover { background: #FEE2E2; }
 
         .main-container { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: var(--bg-base); }
+        
+        /* TOP NAVBAR */
         .top-navbar {
             height: 80px; background: var(--bg-surface); border-bottom: 1.5px solid var(--border-card);
             display: flex; justify-content: space-between; align-items: center; padding: 0 36px;
         }
-        .page-header-title { font-size: 1.35rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.4px; }
+        .page-header-title { font-size: 1.35rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.4px; display: block; }
+        
+        .mobile-header-box { display: none; align-items: center; gap: 8px; }
+        .mobile-header-logo { width: 30px; height: 30px; object-fit: cover; border-radius: 8px; border: 1px solid var(--card-border-gold); }
+        .mobile-header-text { display: flex; flex-direction: column; }
+        .page-brand-subtitle { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--sun-amber); font-weight: 800; }
+        .mobile-welcome-title { font-size: 0.78rem; font-weight: 800; color: var(--text-main); line-height: 1.2; }
+        
         .top-actions { display: flex; align-items: center; gap: 14px; }
 
-        .theme-toggle-btn, .icon-btn {
-            width: 42px; height: 42px; border-radius: 12px; background: var(--bg-card-subtle);
+        .theme-toggle-btn, .icon-btn, .logout-chip-btn {
+            height: 40px; border-radius: 12px; background: var(--bg-card-subtle);
             border: 1.5px solid var(--border-card); color: var(--text-main); display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: var(--transition); position: relative;
+            cursor: pointer; transition: var(--transition); position: relative; font-size: 0.8rem; font-weight: 800; padding: 0 12px;
         }
-        .theme-toggle-btn svg, .icon-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+        .theme-toggle-btn, .icon-btn { width: 40px; padding: 0; }
+        .theme-toggle-btn svg, .icon-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
         .theme-toggle-btn:hover, .icon-btn:hover { border-color: var(--sun-amber); transform: scale(1.05); }
         .icon-btn.has-alerts { border-color: var(--danger); background: var(--danger-bg); color: var(--danger); }
+        .logout-chip-btn { display: none; }
         
         .badge-count {
             position: absolute; top: -5px; right: -5px; background: var(--danger); color: #fff;
@@ -170,26 +183,28 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
         .section-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+        .section-header-row h2 { font-size: 1.15rem; font-weight: 800; color: var(--text-main); }
+        
         .primary-action-btn {
             background: var(--primary-blue); color: #FFFFFF; border: none; padding: 10px 18px; border-radius: var(--radius-sm);
             font-size: 0.84rem; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
             box-shadow: 0 6px 18px rgba(59, 73, 223, 0.3); transition: var(--transition);
         }
         .primary-action-btn:hover { background: var(--primary-blue-hover); transform: translateY(-1px); }
-        .primary-action-btn svg { width: 16px; height: 16px; stroke: #FFFFFF; stroke-width: 2.5; }
+        .primary-action-btn svg { width: 15px; height: 15px; stroke: #FFFFFF; stroke-width: 2.2; }
 
         .pricing-manager-card {
             background: var(--bg-surface); border-radius: var(--radius-lg); border: 1.5px solid var(--card-border-gold);
             box-shadow: var(--shadow-subtle); margin-bottom: 24px; overflow: hidden; border-left: 6px solid var(--sun-amber); transition: var(--transition);
         }
-        .pricing-manager-card.open { border-color: var(--sun-amber); box-shadow: var(--shadow-float); }
+        .pricing-manager-card.open { box-shadow: var(--shadow-float); }
         .pricing-tab-buttons { display: flex; background: var(--bg-card-subtle); padding: 8px; border-bottom: 1.5px solid var(--border-card); gap: 8px; }
         .pkg-tab-btn {
             flex: 1; padding: 11px 16px; border-radius: 10px; border: 1.5px solid transparent; background: transparent;
             color: var(--text-muted); font-size: 0.84rem; font-weight: 800; cursor: pointer; transition: var(--transition);
             display: flex; align-items: center; justify-content: center; gap: 10px;
         }
-        .pkg-tab-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.1; }
+        .pkg-tab-btn svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2; }
         .pkg-tab-btn.active { background: var(--bg-surface); color: var(--primary-blue); border-color: var(--border-card); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
         .pricing-preview-box {
@@ -204,7 +219,7 @@
             width: 36px; height: 36px; border-radius: 10px; background: var(--sun-amber-soft); color: var(--sun-amber);
             display: flex; align-items: center; justify-content: center; border: 1.5px solid rgba(180, 83, 9, 0.25);
         }
-        .pricing-icon-box svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; }
+        .pricing-icon-box svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 2.2; }
 
         .cards-column-list { display: flex; flex-direction: column; gap: 16px; width: 100%; }
         .lux-card {
@@ -219,14 +234,14 @@
 
         .ticket-tag {
             font-family: monospace; font-weight: 800; font-size: 0.8rem; color: var(--sun-amber);
-            background: var(--sun-amber-soft); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(217, 119, 6, 0.25);
+            background: var(--sun-amber-soft); padding: 4px 10px; border-radius: 6px; border: 1.5px solid rgba(217, 119, 6, 0.25);
         }
         .card-header-right { display: flex; align-items: center; gap: 12px; }
         .status-pill {
             font-size: 0.75rem; font-weight: 800; padding: 5px 10px; border-radius: 7px; display: inline-flex; align-items: center; gap: 6px;
         }
-        .status-pill.waiting { background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
-        .status-pill.viewed { background: var(--success-bg); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .status-pill.waiting { background: #FEF3C7; color: #B45309; border: 1.5px solid #FDE68A; }
+        .status-pill.viewed { background: var(--success-bg); color: var(--success); border: 1.5px solid rgba(16, 185, 129, 0.3); }
 
         .chevron-icon { width: 18px; height: 18px; color: var(--text-muted); transition: transform 0.25s ease; }
         .lux-card.open .chevron-icon, .pricing-manager-card.open .chevron-icon { transform: rotate(180deg); color: var(--sun-amber); }
@@ -275,44 +290,117 @@
             padding: 10px; border-radius: 8px; font-weight: 800; font-size: 0.8rem; cursor: pointer; transition: var(--transition);
         }
 
-        /* FORMATTING TOOLBAR STYLES */
         .editor-toolbar {
             display: flex; gap: 6px; margin-bottom: 8px; background: var(--bg-card-subtle);
-            padding: 6px; border-radius: 8px; border: 1px solid var(--border-card);
+            padding: 6px; border-radius: 8px; border: 1.5px solid var(--border-card);
         }
         .editor-tool-btn {
-            background: var(--bg-surface); border: 1px solid var(--border-card); color: var(--text-main);
+            background: var(--bg-surface); border: 1.5px solid var(--border-card); color: var(--text-main);
             padding: 5px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: var(--transition);
         }
-        .editor-tool-btn:hover { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
 
-        /* MODALLAR */
+        /* MOBİL BOTTOM NAVIGATION */
+        .mobile-bottom-nav {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0; height: 68px;
+            background: var(--bg-surface); border-top: 1.5px solid var(--border-card);
+            z-index: 1000; justify-content: space-around; align-items: center;
+            padding: 0 4px env(safe-area-inset-bottom, 0px) 4px;
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.06);
+        }
+        .mobile-nav-item {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: none; border: none; color: var(--text-muted); cursor: pointer; gap: 3px;
+            font-size: 0.62rem; font-weight: 800; flex: 1; height: 100%; transition: var(--transition);
+        }
+        .mobile-nav-item svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; }
+        .mobile-nav-item.active { color: var(--primary-blue); }
+        .mobile-nav-item.active svg { stroke: var(--primary-blue); }
+
+        .mobile-nav-item.center-btn { position: relative; top: -14px; flex: 1; }
+        .center-btn-circle {
+            width: 52px; height: 52px; border-radius: 50%;
+            background: linear-gradient(135deg, #FF5E62 0%, #FF9966 100%);
+            display: flex; align-items: center; justify-content: center;
+            color: #FFFFFF; border: 3.5px solid var(--bg-surface);
+            box-shadow: 0 6px 18px rgba(255, 94, 98, 0.45);
+            font-size: 0.62rem; font-weight: 800; letter-spacing: -0.2px;
+            transition: transform 0.2s ease;
+        }
+
+        /* RESPONSIVE MEDIA QUERY (Mobil üçün zərif, incə və minimalist stil) */
+        @media (max-width: 768px) {
+            .sidebar { display: none !important; }
+            .mobile-bottom-nav { display: flex !important; }
+            .content-scrollable { padding: 10px; padding-bottom: 80px; }
+            .top-navbar { padding: 0 14px; height: 56px; }
+            
+            .page-header-title { display: none !important; }
+            .mobile-header-box { display: flex !important; }
+            .logout-chip-btn { display: flex !important; height: 32px; font-size: 0.68rem; padding: 0 7px; border-radius: 8px; }
+            
+            /* Kartlar və Yazılar Daha Kiçik və Zərif */
+            .section-header-row h2 { font-size: 0.88rem !important; }
+            .primary-action-btn { padding: 6px 10px; font-size: 0.7rem; border-radius: 7px; gap: 4px; }
+            .primary-action-btn svg { width: 12px; height: 12px; }
+            
+            .lux-card { border-radius: 12px; margin-bottom: 10px; }
+            .card-header-bar { padding: 10px 12px; }
+            .card-title-text { font-size: 0.82rem; }
+            .ticket-tag { font-size: 0.68rem; padding: 2px 5px; }
+            .status-pill { font-size: 0.62rem; padding: 3px 6px; }
+            
+            .meta-grid { font-size: 0.74rem; gap: 5px; margin-bottom: 10px; }
+            .meta-label { font-size: 0.64rem; }
+            .action-chip { padding: 5px 8px; font-size: 0.65rem; border-radius: 5px; gap: 3px; }
+            .notice-content-box { padding: 8px; font-size: 0.76rem; line-height: 1.35; margin: 4px 0 8px; }
+            
+            /* Qiymət kartı mobildə minimalist ölçü */
+            .pricing-manager-card { border-radius: 12px; margin-bottom: 14px; }
+            .pkg-tab-btn { padding: 7px 8px; font-size: 0.72rem; gap: 4px; }
+            .pkg-tab-btn svg { width: 14px; height: 14px; }
+            .form-input-lux { padding: 8px 10px; font-size: 0.82rem; margin-bottom: 10px; border-radius: 8px; }
+            .form-label-lux { font-size: 0.68rem; margin-bottom: 3px; }
+            .pricing-preview-box { padding: 10px; margin-top: 10px; border-radius: 9px; }
+            #previewNewPrice { font-size: 0.95rem !important; }
+            #previewOldPrice { font-size: 0.76rem !important; }
+            #previewCampaignTitle { font-size: 0.65rem !important; }
+            #previewDiscountAmount { font-size: 0.62rem !important; }
+        }
+
+        /* MODALLAR (Aşağıdan sıfırdan slide-up ilə açılır) */
         .lux-modal-overlay {
-            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(5px);
-            display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px;
+            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(4px);
+            display: none; align-items: flex-end; justify-content: center; z-index: 2000;
         }
-        .lux-modal-overlay.active { display: flex; }
+        .lux-modal-overlay.active { display: flex; animation: fadeInOverlay 0.2s ease; }
+        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+
         .lux-modal-sheet {
-            width: 100%; max-width: 650px; background: var(--bg-surface); border-radius: 22px;
-            padding: 30px; max-height: 90vh; overflow-y: auto; border: 1.5px solid var(--card-border-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+            width: 100%; max-width: 600px; background: var(--bg-surface);
+            border-top-left-radius: 22px; border-top-right-radius: 22px;
+            padding: 20px 16px 24px; max-height: 85vh; overflow-y: auto;
+            border: 1.5px solid var(--card-border-gold); box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideUpSheet 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .modal-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .modal-header-row h3 { font-size: 1.25rem; font-weight: 800; color: var(--text-main); }
+        @keyframes slideUpSheet { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+        .modal-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .modal-header-row h3 { font-size: 1rem; font-weight: 800; color: var(--text-main); }
         .close-btn {
-            background: var(--bg-card-subtle); border: 1.5px solid var(--border-card); width: 34px; height: 34px; border-radius: 50%;
-            cursor: pointer; font-size: 1.2rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+            background: var(--bg-card-subtle); border: 1.5px solid var(--border-card); width: 28px; height: 28px; border-radius: 50%;
+            cursor: pointer; font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center;
         }
 
-        .form-label-lux { font-size: 0.78rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-label-lux { font-size: 0.72rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px; display: block; text-transform: uppercase; letter-spacing: 0.4px; }
         .form-input-lux {
-            width: 100%; padding: 12px 16px; border-radius: var(--radius-sm); border: 1.5px solid var(--border-card);
-            font-size: 0.92rem; margin-bottom: 16px; outline: none; background: var(--bg-card-subtle); color: var(--text-main); transition: var(--transition);
+            width: 100%; padding: 10px 12px; border-radius: var(--radius-sm); border: 1.5px solid var(--border-card);
+            font-size: 0.85rem; margin-bottom: 12px; outline: none; background: var(--bg-card-subtle); color: var(--text-main); transition: var(--transition);
         }
         .form-input-lux:focus { border-color: var(--primary-blue); background: var(--bg-surface); }
 
         .fullscreen-viewer {
             position: fixed; inset: 0; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(10px);
-            z-index: 3000; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 20px;
+            z-index: 3000; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 16px;
         }
         .fullscreen-viewer.active { display: flex; }
         .fullscreen-img { max-width: 90%; max-height: 75%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
@@ -355,13 +443,14 @@
         </div>
     </div>
 
-    <!-- VEB LAYOUT -->
+    <!-- RESPONSIVE LAYOUT -->
     <div class="admin-wrapper">
+        <!-- SOL SIDEBAR (Desktop) -->
         <aside class="sidebar">
             <div class="sidebar-top">
                 <div class="sidebar-brand">
                     <div style="background: none; box-shadow: none; padding: 0;">
-                        <img src="logo.png" alt="Gunel's Story Logo" style="width: 46px; height: 46px; object-fit: cover; border-radius: 14px; border: 1.5px solid var(--card-border-gold);">
+                        <img src="logo.png" alt="Gunel's Story Logo" style="width: 46px; height: 46px; object-fit: cover; border-radius: 14px; border: 1.5px solid var(--card-border-gold);" onerror="this.style.display='none'">
                     </div>
                     <div class="brand-text">
                         <h1>Gunel's Story</h1>
@@ -394,7 +483,7 @@
             </div>
 
             <div class="sidebar-footer">
-                <div class="admin-profile-info" id="welcomeAdminText">İstifadəçi: Günel</div>
+                <div class="admin-profile-info" id="sidebarAdminUser">İstifadəçi: Günel</div>
                 <button type="button" class="logout-btn" onclick="handleAdminLogout()">Hesabdan Çıx</button>
             </div>
         </aside>
@@ -402,7 +491,18 @@
         <!-- MAIN CONTAINER -->
         <div class="main-container">
             <header class="top-navbar">
+                <!-- Veb başlıq (Kompüterdə təmiz və dəyişməz qalır) -->
                 <h2 class="page-header-title" id="pageMainTitle">Sifarişlər İdarəetməsi</h2>
+                
+                <!-- Mobil başlıq (Loqo və salamlama ilə, yalnız mobildə görünür) -->
+                <div class="mobile-header-box">
+                    <img src="logo.png" alt="Logo" class="mobile-header-logo" onerror="this.style.display='none'">
+                    <div class="mobile-header-text">
+                        <span class="page-brand-subtitle">Gunel's Story Admin</span>
+                        <h2 class="mobile-welcome-title" id="mobileWelcomeText">Salam, xoş gəlmisən Günel</h2>
+                    </div>
+                </div>
+
                 <div class="top-actions">
                     <button type="button" class="theme-toggle-btn" onclick="toggleThemeMode()" title="Rejimi Dəyiş">
                         <svg id="moonIcon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -416,26 +516,28 @@
                         </svg>
                         <span class="badge-count" id="totalBadge" style="display:none;">0</span>
                     </button>
+                    <!-- Çıxış düyməsi yalnız mobildə yuxarı sağda görünür -->
+                    <button type="button" class="logout-chip-btn" onclick="handleAdminLogout()" title="Çıxış et">Çıxış</button>
                 </div>
             </header>
 
             <main class="content-scrollable">
                 <!-- 1. SİFARİŞLƏR -->
                 <section class="tab-view active" id="ordersTab">
-                    <div class="section-header-row"><h2 style="font-size: 1.15rem; font-weight:800;">Gələn Sifarişlər Siyahısı</h2></div>
+                    <div class="section-header-row"><h2>Gələn Sifarişlər Siyahısı</h2></div>
                     <div id="ordersListContainer" class="cards-column-list"><p style="color: var(--text-muted);">Yüklənir...</p></div>
                 </section>
 
                 <!-- 2. MÜRACİƏTLƏR -->
                 <section class="tab-view" id="requestsTab">
-                    <div class="section-header-row"><h2 style="font-size: 1.15rem; font-weight:800;">Sponsorluq və Əməkdaşlıq Müraciətləri</h2></div>
+                    <div class="section-header-row"><h2>Sponsorluq və Əməkdaşlıq Müraciətləri</h2></div>
                     <div id="requestsListContainer" class="cards-column-list"><p style="color: var(--text-muted);">Yüklənir...</p></div>
                 </section>
 
                 <!-- 3. PORTFOLIO -->
                 <section class="tab-view" id="portfolioTab">
                     <div class="section-header-row">
-                        <h2 style="font-size: 1.15rem; font-weight:800;">Portfolio Kitab Nümunələri</h2>
+                        <h2>Portfolio Kitab Nümunələri</h2>
                         <button class="primary-action-btn" onclick="openAddBookModal()">
                             <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                             Yeni Kitab Əlavə Et
@@ -447,14 +549,14 @@
                 <!-- 4. BİLDİRİŞ & QİYMƏT -->
                 <section class="tab-view" id="notificationsTab">
                     <div class="section-header-row">
-                        <h2 style="font-size: 1.15rem; font-weight:800;">Qiymət və Kampaniya İdarəetməsi</h2>
+                        <h2>Qiymət və Kampaniya İdarəetməsi</h2>
                         <button class="primary-action-btn" onclick="openNotificationModal()">
                             <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                             Yeni Bildiriş Yarat
                         </button>
                     </div>
 
-                    <!-- QİYMƏT İDARƏETMƏ KARTI (AKORDEON FORMATINDA) -->
+                    <!-- QİYMƏT İDARƏETMƏ KARTI -->
                     <div class="pricing-manager-card" id="pricingManagerCard">
                         <div class="card-header-bar" onclick="toggleAccordionById('pricingManagerCard')">
                             <div class="card-header-left">
@@ -481,9 +583,9 @@
                                 </button>
                             </div>
 
-                            <div style="padding-top: 16px;">
-                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                                    <span id="currentPkgLabel" style="font-size:0.86rem; font-weight:800; color:var(--text-main);">
+                            <div style="padding-top: 14px;">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                    <span id="currentPkgLabel" style="font-size:0.82rem; font-weight:800; color:var(--text-main);">
                                         Çap Olunmuş Kitabın Endirim Tənzimləmələri
                                     </span>
                                     <span class="status-pill" id="discountStatusBadge" style="background:#FEF3C7; color:#B45309;">
@@ -492,38 +594,38 @@
                                     </span>
                                 </div>
 
-                                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-bottom:12px;">
+                                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:10px;">
                                     <div>
-                                        <label class="form-label-lux" style="font-size:0.74rem;">Köhnə Qiymət (AZN) *</label>
+                                        <label class="form-label-lux">Köhnə Qiymət (AZN) *</label>
                                         <input type="number" id="basePriceInput" class="form-input-lux" style="margin-bottom:0;" placeholder="80" oninput="calculateDiscount()">
                                     </div>
                                     <div>
-                                        <label class="form-label-lux" style="font-size:0.74rem;">Yeni Qiymət (AZN) *</label>
+                                        <label class="form-label-lux">Yeni Qiymət (AZN) *</label>
                                         <input type="number" id="salePriceInput" class="form-input-lux" style="margin-bottom:0;" placeholder="64" oninput="calculateDiscount()">
                                     </div>
                                 </div>
 
-                                <div style="margin-bottom:12px;">
-                                    <label class="form-label-lux" style="font-size:0.74rem;">Endirimin Səbəbi / Kampaniya Başlığı</label>
+                                <div style="margin-bottom:10px;">
+                                    <label class="form-label-lux">Kampaniya Başlığı</label>
                                     <input type="text" id="campaignNoteInput" class="form-input-lux" style="margin-bottom:0;" placeholder="Məsələn: Payız Fürsəti!" oninput="calculateDiscount()">
                                 </div>
 
                                 <div class="pricing-preview-box">
                                     <div>
-                                        <div id="previewCampaignTitle" style="font-size:0.76rem; font-weight:800; color:var(--sun-amber); text-transform:uppercase;">PAYIZ FÜRSƏTİ!</div>
+                                        <div id="previewCampaignTitle" style="font-size:0.72rem; font-weight:800; color:var(--sun-amber); text-transform:uppercase;">PAYIZ FÜRSƏTİ!</div>
                                         <div style="display:flex; align-items:baseline; gap:8px; margin-top:2px;">
-                                            <span id="previewOldPrice" style="text-decoration:line-through; color:var(--text-muted); font-size:0.86rem; font-weight:700;">80 AZN</span>
-                                            <span id="previewNewPrice" style="font-size:1.15rem; font-weight:800; color:var(--primary-dark);">64 AZN</span>
+                                            <span id="previewOldPrice" style="text-decoration:line-through; color:var(--text-muted); font-size:0.82rem; font-weight:700;">80 AZN</span>
+                                            <span id="previewNewPrice" style="font-size:1.05rem; font-weight:800; color:var(--primary-dark);">64 AZN</span>
                                         </div>
-                                        <div id="previewDiscountAmount" style="font-size:0.7rem; color:var(--success); font-weight:700; margin-top:2px;">Qənaət: 16 AZN</div>
+                                        <div id="previewDiscountAmount" style="font-size:0.68rem; color:var(--success); font-weight:700; margin-top:2px;">Qənaət: 16 AZN</div>
                                     </div>
-                                    <span id="previewDiscountBadge" class="status-pill" style="background:var(--danger-bg); color:var(--danger); font-size:0.82rem; font-weight:800; padding:6px 12px;">-20%</span>
+                                    <span id="previewDiscountBadge" class="status-pill" style="background:var(--danger-bg); color:var(--danger); font-size:0.78rem; font-weight:800; padding:5px 10px;">-20%</span>
                                 </div>
 
-                                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
-                                    <label style="display:flex; align-items:center; gap:8px; font-size:0.82rem; font-weight:700; cursor:pointer;">
-                                        <input type="checkbox" id="discountActiveCheckbox" style="width:18px; height:18px; accent-color:var(--primary-blue);" onchange="updatePreviewStatus(this.checked)">
-                                        Saytda Endirimi Aktiv Et
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px;">
+                                    <label style="display:flex; align-items:center; gap:6px; font-size:0.78rem; font-weight:700; cursor:pointer;">
+                                        <input type="checkbox" id="discountActiveCheckbox" style="width:16px; height:16px; accent-color:var(--primary-blue);" onchange="updatePreviewStatus(this.checked)">
+                                        Endirimi Aktiv Et
                                     </label>
                                     <button type="button" class="primary-action-btn" id="saveDiscountBtn" onclick="saveCurrentPackagePricing()">Yadda Saxla</button>
                                 </div>
@@ -537,7 +639,7 @@
                 <!-- 5. E-KİTAB KODLARI -->
                 <section class="tab-view" id="ebookTab">
                     <div class="section-header-row">
-                        <h2 style="font-size: 1.15rem; font-weight:800;">E-Kitab Yükləmə Kodları</h2>
+                        <h2>E-Kitab Yükləmə Kodları</h2>
                         <button class="primary-action-btn" onclick="openCodeModal()">
                             <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                             Yeni Kod Yarat
@@ -549,6 +651,31 @@
         </div>
     </div>
 
+    <!-- MOBİL BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <button class="mobile-nav-item" onclick="switchNavTab('requests', this)">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span>Müraciət</span>
+        </button>
+        <button class="mobile-nav-item" onclick="switchNavTab('portfolio', this)">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <span>Portfolio</span>
+        </button>
+        
+        <button class="mobile-nav-item center-btn active" onclick="switchNavTab('orders', this)">
+            <div class="center-btn-circle">Sifarişlər</div>
+        </button>
+        
+        <button class="mobile-nav-item" onclick="switchNavTab('notifications', this)">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span>Bildiriş</span>
+        </button>
+        <button class="mobile-nav-item" onclick="switchNavTab('ebook', this)">
+            <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-1.5 1.5L14 9l-1.5-1.5-1.5 1.5 1.5 1.5L10 13l-4 4-3 1 1-3 4-4 2.5 2.5 1.5-1.5-1.5-1.5 3.5-3.5z"></path><circle cx="7.5" cy="16.5" r="1.5"></circle></svg>
+            <span>E-Kitab</span>
+        </button>
+    </nav>
+
     <!-- MODALLAR -->
     <div class="lux-modal-overlay" id="contractModal">
         <div class="lux-modal-sheet">
@@ -556,8 +683,8 @@
                 <h3 id="contractSheetTitle">Müqavilə</h3>
                 <button class="close-btn" onclick="closeSheet('contractModal')">×</button>
             </div>
-            <div id="contractRenderContent" style="font-size:0.88rem; line-height:1.6; max-height: 52vh; overflow-y:auto; padding: 14px; background: #FFFFFF; border-radius: 8px; border: 1.5px solid var(--border-card); margin-bottom: 16px; color:#111;"></div>
-            <div style="display:flex; justify-content:flex-end; gap:10px;">
+            <div id="contractRenderContent" style="font-size:0.86rem; line-height:1.6; max-height: 50vh; overflow-y:auto; padding: 12px; background: #FFFFFF; border-radius: 8px; border: 1.5px solid var(--border-card); margin-bottom: 14px; color:#111;"></div>
+            <div style="display:flex; justify-content:flex-end; gap:8px;">
                 <button class="action-chip" style="background:#e2e8f0; color:#1e293b;" onclick="closeSheet('contractModal')">Bağla</button>
                 <button class="primary-action-btn" onclick="downloadContractPDF()">PDF İxrac Et</button>
             </div>
@@ -577,7 +704,7 @@
             <input type="text" id="bookAuthorInput" class="form-input-lux" placeholder="Psixoloq Günel Mahmudqızı">
             <label class="form-label-lux">Kitab şəkli (Şəkil faylı)</label>
             <input type="file" id="bookImageFile" accept="image/*" class="form-input-lux">
-            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
+            <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
                 <button class="action-chip" style="background:#e2e8f0; color:#1e293b;" onclick="closeSheet('bookModal')">İmtina</button>
                 <button class="primary-action-btn" onclick="savePortfolioBook()">Yadda Saxla</button>
             </div>
@@ -595,7 +722,6 @@
             <input type="text" id="noticeTitleInput" class="form-input-lux" placeholder="Başlıq daxil edin">
             <label class="form-label-lux">Məzmun *</label>
             
-            <!-- FORMATTING TOOLBAR -->
             <div class="editor-toolbar">
                 <button type="button" class="editor-tool-btn" onclick="formatNoticeText('b')"><b>B</b> (Qalın)</button>
                 <button type="button" class="editor-tool-btn" onclick="formatNoticeText('i')"><i>I</i> (İtalik)</button>
@@ -603,13 +729,13 @@
                 <button type="button" class="editor-tool-btn" onclick="insertNoticeLink()">🔗 Link</button>
             </div>
 
-            <textarea id="noticeMessageInput" class="form-input-lux" style="min-height:110px;" placeholder="Bildiriş mətni..."></textarea>
+            <textarea id="noticeMessageInput" class="form-input-lux" style="min-height:95px;" placeholder="Bildiriş mətni..."></textarea>
             
-            <label style="display:flex; align-items:center; gap:8px; font-size:0.82rem; font-weight:700; margin-bottom:16px; cursor:pointer;">
-                <input type="checkbox" id="noticePublishCheckbox" checked style="width:18px; height:18px;">
+            <label style="display:flex; align-items:center; gap:6px; font-size:0.78rem; font-weight:700; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" id="noticePublishCheckbox" checked style="width:16px; height:16px;">
                 Saytda aktivləşdir (Publish)
             </label>
-            <div style="display:flex; justify-content:flex-end; gap:10px;">
+            <div style="display:flex; justify-content:flex-end; gap:8px;">
                 <button class="action-chip" style="background:#e2e8f0; color:#1e293b;" onclick="closeSheet('noticeModal')">İmtina</button>
                 <button class="primary-action-btn" onclick="saveNoticeData()">Yadda Saxla</button>
             </div>
@@ -623,13 +749,13 @@
                 <button class="close-btn" onclick="closeSheet('codeModal')">×</button>
             </div>
             <label class="form-label-lux">Unikal Kod *</label>
-            <div style="display:flex; gap:10px; margin-bottom:14px;">
+            <div style="display:flex; gap:8px; margin-bottom:12px;">
                 <input type="text" id="newBookCode" class="form-input-lux" style="margin-bottom:0; font-weight:700; font-family:monospace;" placeholder="GNL-2CT3">
                 <button type="button" class="primary-action-btn" onclick="generateCodeRandom()">Random</button>
             </div>
             <label class="form-label-lux">Google Drive Linki *</label>
             <input type="text" id="newDriveLink" class="form-input-lux" placeholder="https://drive.google.com/...">
-            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
+            <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:8px;">
                 <button class="action-chip" style="background:#e2e8f0; color:#1e293b;" onclick="closeSheet('codeModal')">İmtina</button>
                 <button class="primary-action-btn" id="saveCodeBtn" onclick="saveNewEbookCode()">Yarat</button>
             </div>
@@ -639,7 +765,7 @@
     <!-- FULLSCREEN IMAGE VIEWER -->
     <div class="fullscreen-viewer" id="fullscreenViewer" onclick="closeFullscreenImage()">
         <img src="" id="fullscreenImgElement" class="fullscreen-img" alt="Böyük Baxış">
-        <p id="fullscreenImgCaption" style="color:#fff; margin-top:14px; font-weight:700; font-size:0.9rem;"></p>
+        <p id="fullscreenImgCaption" style="color:#fff; margin-top:12px; font-weight:700; font-size:0.85rem;"></p>
     </div>
 
     <!-- FIREBASE & PDF -->
@@ -711,7 +837,8 @@
 
         function initAdminSession(name) {
             document.getElementById("loginScreen").style.display = "none";
-            document.getElementById("welcomeAdminText").innerText = `İstifadəçi: ${name}`;
+            document.getElementById("mobileWelcomeText").innerText = `Salam, xoş gəlmisən ${name}`;
+            document.getElementById("sidebarAdminUser").innerText = `İstifadəçi: ${name}`;
             startListeningContracts();
             listenOrders();
             listenPortfolio();
@@ -763,8 +890,10 @@
 
         function switchNavTab(tabName, btn) {
             document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.mobile-nav-item').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-view').forEach(v => v.classList.remove('active'));
-            btn.classList.add('active');
+            
+            document.querySelectorAll(`[onclick*="${tabName}"]`).forEach(b => b.classList.add('active'));
             document.getElementById(tabName + 'Tab').classList.add('active');
             document.getElementById('pageMainTitle').innerText = tabTitles[tabName] || 'Admin Panel';
         }
@@ -789,13 +918,9 @@
             viewer.classList.add('active');
         }
 
-        function closeFullscreenImage() {
-            document.getElementById('fullscreenViewer').classList.remove('active');
-        }
-
+        function closeFullscreenImage() { document.getElementById('fullscreenViewer').classList.remove('active'); }
         function closeSheet(id) { document.getElementById(id).classList.remove('active'); }
 
-        // MƏTNİ FORMATLAMA FUNKSİYALARI
         function formatNoticeText(tag) {
             const ta = document.getElementById('noticeMessageInput');
             const start = ta.selectionStart;
@@ -881,16 +1006,14 @@
             }
         }
 
-        // 2. MÜRACİƏTLƏR VƏ MÜQAVİLƏ
+        // 2. MÜRACİƏTLƏR VƏ MÜqavilə
         let existingContractsMap = new Map();
         function startListeningContracts() {
             db.collection("contractsHistory").onSnapshot(snapshot => {
                 existingContractsMap.clear();
                 snapshot.forEach(doc => {
                     const data = doc.data();
-                    if (data.ticketId) {
-                        existingContractsMap.set(data.ticketId, data);
-                    }
+                    if (data.ticketId) { existingContractsMap.set(data.ticketId, data); }
                 });
                 listenRequests();
             });
@@ -1190,7 +1313,7 @@
         }
 
         function openNotificationModal() {
-            document.getElementById('noticeModalTitle').innerText = "Bildiriş Yarat";
+            document.getElementById('noticeModalTitle').innerText = "Yeni Bildiriş";
             document.getElementById('noticeDocId').value = "";
             document.getElementById('noticeTitleInput').value = "";
             document.getElementById('noticeMessageInput').value = "";
